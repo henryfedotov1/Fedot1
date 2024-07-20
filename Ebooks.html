@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-books</title>
+    <style>
+        /* Reset default margin and padding for all elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #000; /* Set black background color for the body */
+            color: #fff; /* Set text color to white */
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        header {
+            background-color: black; /* Set black background color for the header */
+            color: white; /* White text color for the header */
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            width: 100%; /* Ensure header spans the entire width */
+        }
+        .logo {
+            width: 100px; /* Adjusted the logo size */
+            margin-right: 20px; /* Added margin between logo and navigation */
+        }
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 1.2em;
+        }
+        main {
+            background-color: #fff; /* White background for main content */
+            padding: 50px;
+            padding-top: 180px; /* Ensure content is below the fixed header */
+            margin-top: 80px; /* Provide space for the fixed header */
+            min-height: 100vh; /* Set minimum height to viewport height */
+        }
+        h1 {
+            color: #7851A9; /* Royal purple color for heading */
+        }
+        .ebook-list {
+            list-style-type: none; /* Remove default list styling */
+            padding: 0;
+        }
+        .ebook-list li {
+            margin: 20px 0; /* Space between list items */
+            font-size: 1.2em; /* Increase font size */
+        }
+        .back-link {
+            color: #7851A9; /* Royal purple color for back link */
+            text-decoration: none;
+            font-size: 1.2em; /* Increase font size */
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="top-nav">
+        <!-- Replace with actual path or URL to your logo image -->
+        <img src="C:\Users\henry\OneDrive\תמונות\צילומי מסך\Screenshot 2024-07-16 220902.png" alt="Dotov Logo" class="logo">
+        <nav>
+            <a href="Dotov1.html">Home</a>
+            <a href="ebooks.html">E-books</a>
+            <a href="Aboutus.html">About Us</a>
+            <a href="caloriecalculator.html">Calorie Calculator</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <h1>E-books</h1>
+    <ul class="ebook-list">
+        <li><a href="Book.html">High Protein, Low Calorie: Delicious and Nutritious Recipes for Every Meal</a></li>
+        <li><a href="Book2.html">Low Calorie, High Taste: Healthy Recipes for Every Day</a></li>
+    </ul>
+    <a href="Dotov1.html" class="back-link">Back to Home</a>
+</main>
+
+</body>
+</html>
