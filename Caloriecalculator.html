@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calorie Calculator</title>
+    <style>
+        body {
+            background-color: #000; /* Set black background color for the body */
+            color: #fff; /* Set text color to white */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        header {
+            background-color: black; /* Set black background color for the header */
+            color: white; /* White text color for the header */
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            width: 100%; /* Ensure header spans the entire width */
+        }
+        .logo {
+            width: 100px; /* Adjusted the logo size */
+            margin-right: 20px; /* Added margin between logo and navigation */
+        }
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 1.2em;
+        }
+        main {
+            background-color: #fff; /* White background for main content */
+            padding: 50px;
+            padding-top: 180px; /* Ensure content is below the fixed header */
+            margin-top: 80px; /* Provide space for the fixed header */
+            min-height: 100vh; /* Set minimum height to viewport height */
+            color: #000; /* Set text color to black */
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .calculator {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        .calculator input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1em;
+        }
+        .calculator button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px; /* Added margin top */
+        }
+        .calculator button:hover {
+            background-color: #333;
+        }
+        .results {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function calculateCalories() {
+            let weight = parseFloat(document.getElementById('weight').value);
+            let unit = document.querySelector('input[name="unit"]:checked').value;
+            
+            if (unit === 'pounds') {
+                weight = weight / 2.2046226218; // Convert pounds to kilograms
+            }
+
+            const maintenanceCalories = Math.round(weight * 33);
+            const bulkCalories = Math.round(maintenanceCalories + 350);
+            const cutCalories = Math.round(maintenanceCalories - 500);
+            const aggressiveCutCalories = Math.round(cutCalories - 500);
+
+            document.getElementById('maintenance').innerText = `Maintenance calorie intake: ${maintenanceCalories.toFixed(0)} kcal`;
+            document.getElementById('bulk').innerText = `Suggested bulk calorie intake: ${bulkCalories.toFixed(0)} kcal`;
+            document.getElementById('cut').innerText = `Suggested cut calorie intake: ${cutCalories.toFixed(0)} kcal`;
+            document.getElementById('aggressive-cut').innerText = `Suggested aggressive cut calorie intake: ${aggressiveCutCalories.toFixed(0)} kcal (Note: This calorie intake isn't healthy and might result in muscle loss)`;
+        }
+    </script>
+</head>
+<body>
+<header>
+    <div class="top-nav">
+        <img src="C:\Users\henry\OneDrive\תמונות\צילומי מסך\Screenshot 2024-07-16 220902.png" alt="Dotov Logo" class="logo">
+        <nav>
+            <a href="Dotov1.html">Home</a>
+            <a href="ebooks.html">E-books</a>
+            <a href="Aboutus.html">About Us</a>
+            <a href="calorie-calculator.html">Calorie Calculator</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <h1>Calorie Calculator</h1>
+    <p>Please note: The calorie amount suggested is an estimate and may not be exact.</p>
+    <div class="calculator">
+        <p>Enter your weight:</p>
+        <input type="number" id="weight" placeholder="Weight" required>
+        <div style="margin-top: 10px;">
+            <label><input type="radio" name="unit" value="kilograms" checked> Kilograms</label>
+            <label><input type="radio" name="unit" value="pounds"> Pounds</label>
+        </div>
+        <button onclick="calculateCalories()">Calculate</button>
+        <div class="results">
+            <p id="maintenance"></p>
+            <p id="bulk"></p>
+            <p id="cut"></p>
+            <p id="aggressive-cut"></p>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>
