@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fedot</title>
+    <style>
+        /* Reset default margin and padding for all elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #000; /* Set black background color for the body */
+            color: #fff; /* Set text color to white */
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        header {
+            background-color: black; /* Set black background color for the header */
+            color: white; /* White text color for the header */
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            width: 100%; /* Ensure header spans the entire width */
+        }
+        .logo {
+            width: 100px; /* Adjusted the logo size */
+            margin-right: 20px; /* Added margin between logo and navigation */
+        }
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 1.2em;
+        }
+        main {
+            background-color: #fff; /* White background for main content */
+            padding: 50px;
+            padding-top: 180px; /* Ensure content is below the fixed header */
+            margin-top: 80px; /* Provide space for the fixed header */
+            min-height: 100vh; /* Set minimum height to viewport height */
+        }
+        .catchphrase {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #7851A9; /* Royal purple color for catchphrase */
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            white-space: pre-wrap; /* This allows text to wrap to the next line */
+            color: #7851A9; /* Royal purple color for paragraph text */
+        }
+        .tip-popup {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid #7851A9;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            display: inline-block;
+            position: relative;
+            text-align: left;
+            width: 80%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .tip-popup::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -20px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent rgba(255, 255, 255, 0.1) transparent transparent;
+        }
+        .tip-popup h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #7851A9;
+        }
+        .tip-popup p {
+            font-size: 1.2em;
+            color: #7851A9; /* Royal purple color for tip text */
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="top-nav">
+        <!-- Replace with actual path or URL to your logo image -->
+        <img src="C:\Users\henry\OneDrive\תמונות\צילומי מסך\Screenshot 2024-07-16 220902.png" alt="Fedot Logo" class="logo">
+        <nav>
+            <a href="Dotov1.html">Home</a>
+            <a href="Ebooks.html">E-books</a>
+            <a href="Aboutus.html">About Us</a>
+            <a href="caloriecalculator.html">Calorie Calculator</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="catchphrase">Achieve Your Peak Performance with Intense Fitness Training!</div>
+    <div class="tip-popup">
+        <h3>Tip #1</h3>
+        <p>Stay hydrated during workouts to maintain energy and performance levels.</p>
+    </div>
+    <div class="tip-popup">
+        <h3>Tip #2</h3>
+        <p>Incorporate both cardio and strength training into your routine for balanced fitness.</p>
+    </div>
+    <div class="tip-popup">
+        <h3>Tip #3</h3>
+        <p>Consistency is key – aim for regular workouts rather than sporadic intense sessions.</p>
+    </div>
+    <div class="tip-popup">
+        <h3>Tip #4</h3>
+        <p>Proper form is crucial to prevent injuries – don’t sacrifice form for heavier weights.</p>
+    </div>
+    <div class="tip-popup">
+        <h3>Tip #5</h3>
+        <p>Rest and recovery are just as important as exercise – make sure to get enough sleep.</p>
+    </div>
+</main>
+
+</body>
+</html>
