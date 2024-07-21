@@ -36,21 +36,28 @@
             width: 100%; /* Ensure header spans the entire width */
         }
         .logo {
-            width: 80px; /* Adjusted size for responsiveness */
+            width: 100px; /* Adjusted the logo size */
             margin-right: 20px; /* Added margin between logo and navigation */
         }
         .top-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap; /* Allow navigation to wrap on smaller screens */
+            width: 100%;
         }
         .top-nav a {
             color: white;
             text-decoration: none;
-            margin: 0 30px; /* Increased margin for more space between navigation items */
+            margin-right: 20px;
             font-size: 1.2em;
-            display: inline-block; /* Ensures margins work correctly */
+        }
+        .menu-button {
+            display: none; /* Hide menu button by default */
+            font-size: 2em;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #fff;
         }
         main {
             background-color: #fff; /* White background for main content */
@@ -125,74 +132,49 @@
         .youtube-button i {
             font-size: 1.5em; /* Adjust icon size */
         }
-        /* Responsive design for smaller screens */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column; /* Stack logo and navigation vertically */
-                text-align: center;
-            }
-            .logo {
-                width: 70px; /* Smaller logo size for smaller screens */
-            }
-            .top-nav {
-                flex-direction: column;
-            }
-            .top-nav a {
-                margin: 15px 0; /* Increased margin for more space between navigation items on smaller screens */
-                font-size: 1em;
-            }
-            main {
-                padding: 20px;
-                padding-top: 200px; /* Adjusted space from header */
-            }
-            .catchphrase {
-                font-size: 1.5em; /* Reduced font size for smaller screens */
-                margin-bottom: 30px;
-            }
-            .tip-popup {
-                width: 100%; /* Full width for better readability */
-                padding: 10px;
-                margin: 10px 0;
-            }
-            .tip-popup h3 {
-                font-size: 1.2em;
-            }
-            .tip-popup p {
-                font-size: 1em;
-            }
-            .youtube-button {
-                padding: 10px; /* Smaller button padding */
-                font-size: 1.2em; /* Adjusted size of the icon */
-                bottom: 10px;
-                right: 10px;
-            }
+
+        /* Styles for slide-out menu */
+        .menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            color: #fff;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            overflow: auto;
+            z-index: 1001;
+            padding: 20px;
+        }
+        .menu.open {
+            transform: translateX(0);
+        }
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            margin: 15px 0;
+            font-size: 1.5em;
+        }
+        .menu a:hover {
+            color: #7851A9;
+        }
+        .menu-close {
+            font-size: 2em;
+            cursor: pointer;
+            display: block;
+            text-align: right;
+            margin-bottom: 20px;
         }
 
-        @media (max-width: 480px) {
-            .logo {
-                width: 60px; /* Further reduced logo size for very small screens */
+        @media (max-width: 768px) {
+            .top-nav {
+                display: none; /* Hide top navigation links on mobile */
             }
-            .top-nav a {
-                font-size: 0.9em; /* Smaller font size for navigation links */
-            }
-            .catchphrase {
-                font-size: 1.2em; /* Further reduced font size */
-            }
-            .tip-popup {
-                padding: 8px;
-                margin: 8px 0;
-            }
-            .tip-popup h3 {
-                font-size: 1.1em;
-            }
-            .tip-popup p {
-                font-size: 0.9em;
-            }
-            .youtube-button {
-                padding: 8px;
-                font-size: 1em;
-                bottom: 5px;
-                right: 5px;
+            .menu-button {
+                display: block; /* Show menu button on mobile */
             }
         }
     </style>
@@ -200,7 +182,6 @@
 <body>
 <header>
     <div class="top-nav">
-        <!-- Replace with actual path or URL to your logo image -->
         <img src="Screenshot 2024-07-16 220902.png" alt="Fedot Logo" class="logo">
         <nav>
             <a href="index.html">Home</a>
@@ -208,6 +189,9 @@
             <a href="Aboutus.html">About Us</a>
             <a href="Calculator.html">Fitness Calculator</a>
         </nav>
+        <button class="menu-button" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
     </div>
 </header>
 
@@ -235,12 +219,32 @@
     </div>
 </main>
 
+<!-- Slide-out menu -->
+<div class="menu" id="slideMenu">
+    <span class="menu-close" onclick="toggleMenu()">&times;</span>
+    <a href="index.html">Home</a>
+    <a href="Ebooks.html">E-books</a>
+    <a href="Aboutus.html">About Us</a>
+    <a href="Calculator.html">Fitness Calculator</a>
+</div>
+
 <!-- YouTube button at the bottom right of the viewport -->
 <a href="https://www.youtube.com/@Fedot-j8t" class="youtube-button" target="_blank">
     <i class="fab fa-youtube"></i>
 </a>
 
-<!-- Font Awesome script for YouTube icon -->
+<!-- Font Awesome script for icons -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('slideMenu');
+        if (menu.classList.contains('open')) {
+            menu.classList.remove('open');
+        } else {
+            menu.classList.add('open');
+        }
+    }
+</script>
 </body>
 </html>
