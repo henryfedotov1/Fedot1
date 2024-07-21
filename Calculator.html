@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Calorie Calculator</title>
+    <title>Fitness Calculators</title>
     <style>
         body {
             background-color: #000; /* Set black background color for the body */
@@ -84,6 +84,23 @@
         .results {
             margin-top: 20px;
         }
+        .calculator-switch {
+            margin-top: 20px;
+            font-size: 1em;
+        }
+        .calculator-switch button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .calculator-switch button:hover {
+            background-color: #333;
+        }
     </style>
     <script>
         function calculateCalories() {
@@ -104,25 +121,56 @@
             document.getElementById('cut').innerText = `Suggested cut calorie intake: ${cutCalories.toFixed(0)} kcal`;
             document.getElementById('aggressive-cut').innerText = `Suggested aggressive cut calorie intake: ${aggressiveCutCalories.toFixed(0)} kcal (Note: This calorie intake isn't healthy and might result in muscle loss)`;
         }
+
+        function calculateMaxLift() {
+            let weight = parseFloat(document.getElementById('lift-weight').value);
+            let unit = document.querySelector('input[name="lift-unit"]:checked').value;
+            let reps = parseInt(document.getElementById('reps').value);
+
+            if (unit === 'kg') {
+                weight = weight * 2.2046226218; // Convert kg to pounds
+            }
+
+            // Using Epley formula
+            const maxLiftLbs = Math.round(weight * (1 + reps / 30));
+            const maxLiftKg = (maxLiftLbs / 2.2046226218).toFixed(2);
+
+            document.getElementById('max-lift').innerText = "Calculating...";
+            setTimeout(function() {
+                document.getElementById('max-lift').innerText = `Estimated 1 Rep Max: ${maxLiftLbs.toFixed(0)} lbs or ${maxLiftKg} kg`;
+            }, 2000);
+        }
+
+        function showCalculator(calculator) {
+            document.getElementById('calorie-calculator').style.display = 'none';
+            document.getElementById('max-lift-calculator').style.display = 'none';
+            document.getElementById(calculator).style.display = 'block';
+        }
     </script>
 </head>
 <body>
 <header>
     <div class="top-nav">
-        <img src="https://drive.google.com/uc?export=view&id=1wSFXUMFozbjgHvjqQwL-Y5wsOc3UpZaP" alt="Fedot Logo" class="logo">
+        <img src="C:\Users\henry\OneDrive\תמונות\צילומי מסך\Screenshot 2024-07-16 220902.png" alt="Dotov Logo" class="logo">
         <nav>
-            <a href="index.html">Home</a>
-            <a href="Ebooks.html">E-books</a>
+            <a href="Dotov1.html">Home</a>
+            <a href="ebooks.html">E-books</a>
             <a href="Aboutus.html">About Us</a>
-            <a href="Caloriecalculator.html">Calorie Calculator</a>
+            <a href="calorie-calculator.html">Calorie Calculator</a>
         </nav>
     </div>
 </header>
 
 <main>
-    <h1>Calorie Calculator</h1>
-    <p>Please note: The calorie amount suggested is an estimate and may not be exact.</p>
-    <div class="calculator">
+    <h1>Fitness Calculators</h1>
+    <p>Please note: The results provided by these calculators are estimates and may not be exact.</p>
+
+    <div class="calculator-switch">
+        <button onclick="showCalculator('calorie-calculator')">Calorie Calculator</button>
+        <button onclick="showCalculator('max-lift-calculator')">Max Lift Calculator</button>
+    </div>
+
+    <div id="calorie-calculator" class="calculator" style="display: block;">
         <p>Enter your weight:</p>
         <input type="number" id="weight" placeholder="Weight" required>
         <div style="margin-top: 10px;">
@@ -135,6 +183,21 @@
             <p id="bulk"></p>
             <p id="cut"></p>
             <p id="aggressive-cut"></p>
+        </div>
+    </div>
+
+    <div id="max-lift-calculator" class="calculator" style="display: none;">
+        <p>Enter the weight you lifted:</p>
+        <input type="number" id="lift-weight" placeholder="Weight lifted" required>
+        <div style="margin-top: 10px;">
+            <label><input type="radio" name="lift-unit" value="kg"> Kilograms</label>
+            <label><input type="radio" name="lift-unit" value="lbs" checked> Pounds</label>
+        </div>
+        <p>Enter the number of reps:</p>
+        <input type="number" id="reps" placeholder="Reps" required>
+        <button onclick="calculateMaxLift()">Calculate</button>
+        <div class="results">
+            <p id="max-lift"></p>
         </div>
     </div>
 </main>
