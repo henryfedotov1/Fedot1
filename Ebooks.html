@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-books</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Reset default margin and padding for all elements */
         * {
@@ -73,12 +74,107 @@
         .ebook-list a:hover {
             text-decoration: underline; /* Underline on hover */
         }
+
+        /* Sidebar styles */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px; /* Hide sidebar by default */
+            background-color: #333;
+            color: #fff;
+            transition: left 0.3s ease;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        .sidebar.open {
+            left: 0; /* Show sidebar when open */
+        }
+        .sidebar h2 {
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 15px;
+        }
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar ul li a i {
+            margin-right: 15px; /* Add space between icon and text */
+        }
+        .sidebar .social_media {
+            margin-top: 20px;
+        }
+        .sidebar .social_media a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        /* Menu button styles */
+        .menu-button {
+            display: none; /* Hide menu button by default */
+            font-size: 1.5em; /* Smaller font size */
+            cursor: pointer;
+            background: none; /* Remove background color */
+            border: none;
+            color: #fff; /* White color for the icon */
+            padding: 10px; /* Smaller padding */
+            position: absolute; /* Absolute positioning for proper placement */
+            top: 10px;
+            left: 10px; /* Position in the top-left corner */
+            z-index: 1002; /* Ensure it's above other content */
+        }
+        .menu-button i {
+            font-size: 1.2em; /* Smaller icon size */
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .top-nav {
+                display: none; /* Hide top navigation links on mobile */
+            }
+            .menu-button {
+                display: block; /* Show menu button on mobile */
+            }
+            .sidebar {
+                width: 100%; /* Full width sidebar on mobile */
+                left: -100%; /* Start off-screen */
+            }
+            .sidebar.open {
+                left: 0; /* Slide in the sidebar */
+            }
+        }
+
+        /* Extra check for very small screens */
+        @media (max-width: 390px) {
+            .menu-button {
+                font-size: 1.2em; /* Ensure button is not too large */
+                padding: 8px; /* Adjust padding for very small screens */
+            }
+            .menu-button i {
+                font-size: 1em; /* Smaller icon size for very small screens */
+            }
+        }
     </style>
 </head>
 <body>
 <header>
+    <button class="menu-button" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
     <div class="top-nav">
-        <!-- Replace with actual path or URL to your logo image -->
         <img src="Screenshot 2024-07-16 220902.png" alt="Fedot Logo" class="logo">
         <nav>
             <a href="index.html">Home</a>
@@ -98,5 +194,30 @@
     </ul>
 </main>
 
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <h2>Menu</h2>
+    <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+        <li><a href="Ebooks.html"><i class="fas fa-book"></i>E-books</a></li>
+        <li><a href="Aboutus.html"><i class="fas fa-user"></i>About Us</a></li>
+        <li><a href="Calculator.html"><i class="fas fa-calculator"></i>Fitness Calculator</a></li>
+    </ul>
+    <div class="social_media">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+</div>
+
+<!-- Font Awesome script for icons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('open');
+    }
+</script>
 </body>
 </html>
