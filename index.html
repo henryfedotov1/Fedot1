@@ -20,6 +20,7 @@
             margin-top: 80px; /* Adjusted to avoid content being hidden behind the fixed header */
             min-height: 120vh; /* Increased height to make the page longer */
             position: relative; /* Ensure positioning of footer and button */
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
         header {
             background-color: black; /* Set black background color for the header */
@@ -43,7 +44,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
+            width: calc(100% - 130px); /* Adjusted width to account for logo and menu button */
         }
         .top-nav a {
             color: white;
@@ -53,11 +54,19 @@
         }
         .menu-button {
             display: none; /* Hide menu button by default */
-            font-size: 2em;
+            font-size: 1.5em; /* Smaller font size */
             cursor: pointer;
-            background: none;
+            background: none; /* Remove background color */
             border: none;
-            color: #fff;
+            color: #fff; /* White color for the icon */
+            padding: 10px; /* Smaller padding */
+            position: absolute; /* Absolute positioning for proper placement */
+            top: 10px;
+            left: 10px; /* Position in the top-left corner */
+            z-index: 1002; /* Ensure it's above other content */
+        }
+        .menu-button i {
+            font-size: 1.2em; /* Smaller icon size */
         }
         main {
             background-color: #fff; /* White background for main content */
@@ -133,42 +142,53 @@
             font-size: 1.5em; /* Adjust icon size */
         }
 
-        /* Styles for slide-out menu */
-        .menu {
+        /* Sidebar styles */
+        .sidebar {
+            height: 100%;
+            width: 250px;
             position: fixed;
             top: 0;
-            right: 0;
-            width: 250px;
-            height: 100%;
+            left: -250px; /* Hide sidebar by default */
             background-color: #333;
             color: #fff;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            overflow: auto;
-            z-index: 1001;
+            transition: left 0.3s ease;
+            z-index: 1000;
+            overflow-y: auto;
             padding: 20px;
         }
-        .menu.open {
-            transform: translateX(0);
+        .sidebar.open {
+            left: 0; /* Show sidebar when open */
         }
-        .menu a {
-            color: #fff;
-            text-decoration: none;
-            display: block;
-            margin: 15px 0;
-            font-size: 1.5em;
-        }
-        .menu a:hover {
-            color: #7851A9;
-        }
-        .menu-close {
-            font-size: 2em;
-            cursor: pointer;
-            display: block;
-            text-align: right;
+        .sidebar h2 {
             margin-bottom: 20px;
         }
+        .sidebar ul {
+            list-style: none;
+        }
+        .sidebar ul li {
+            margin-bottom: 15px;
+        }
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar ul li a i {
+            margin-right: 10px;
+        }
+        .sidebar .social_media {
+            margin-top: 20px;
+        }
+        .sidebar .social_media a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
 
+        /* Responsive design */
         @media (max-width: 768px) {
             .top-nav {
                 display: none; /* Hide top navigation links on mobile */
@@ -176,22 +196,40 @@
             .menu-button {
                 display: block; /* Show menu button on mobile */
             }
+            .sidebar {
+                width: 100%; /* Full width sidebar on mobile */
+                left: -100%; /* Start off-screen */
+            }
+            .sidebar.open {
+                left: 0; /* Slide in the sidebar */
+            }
+        }
+
+        /* Extra check for very small screens */
+        @media (max-width: 390px) {
+            .menu-button {
+                font-size: 1.2em; /* Ensure button is not too large */
+                padding: 8px; /* Adjust padding for very small screens */
+            }
+            .menu-button i {
+                font-size: 1em; /* Smaller icon size for very small screens */
+            }
         }
     </style>
 </head>
 <body>
 <header>
+    <button class="menu-button" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
     <div class="top-nav">
-        <img src="Screenshot 2024-07-16 220902.png" alt="Fedot Logo" class="logo">
+        <img src="C:\Users\henry\OneDrive\תמונות\צילומי מסך\Screenshot 2024-07-16 220902.png" alt="Fedot Logo" class="logo">
         <nav>
             <a href="index.html">Home</a>
             <a href="Ebooks.html">E-books</a>
             <a href="Aboutus.html">About Us</a>
             <a href="Calculator.html">Fitness Calculator</a>
         </nav>
-        <button class="menu-button" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </button>
     </div>
 </header>
 
@@ -219,17 +257,24 @@
     </div>
 </main>
 
-<!-- Slide-out menu -->
-<div class="menu" id="slideMenu">
-    <span class="menu-close" onclick="toggleMenu()">&times;</span>
-    <a href="index.html">Home</a>
-    <a href="Ebooks.html">E-books</a>
-    <a href="Aboutus.html">About Us</a>
-    <a href="Calculator.html">Fitness Calculator</a>
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <h2>Menu</h2>
+    <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+        <li><a href="Ebooks.html"><i class="fas fa-book"></i>E-books</a></li>
+        <li><a href="Aboutus.html"><i class="fas fa-user"></i>About Us</a></li>
+        <li><a href="Calculator.html"><i class="fas fa-calculator"></i>Fitness Calculator</a></li>
+    </ul>
+    <div class="social_media">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
 </div>
 
-<!-- YouTube button at the bottom right of the viewport -->
-<a href="https://www.youtube.com/@Fedot-j8t" class="youtube-button" target="_blank">
+<!-- YouTube Button -->
+<a href="https://www.youtube.com" class="youtube-button" target="_blank">
     <i class="fab fa-youtube"></i>
 </a>
 
@@ -237,13 +282,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 
 <script>
-    function toggleMenu() {
-        const menu = document.getElementById('slideMenu');
-        if (menu.classList.contains('open')) {
-            menu.classList.remove('open');
-        } else {
-            menu.classList.add('open');
-        }
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('open');
     }
 </script>
 </body>
