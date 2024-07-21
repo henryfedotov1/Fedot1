@@ -42,9 +42,12 @@
         }
         .top-nav {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            align-items: center; /* Align items vertically center */
             width: calc(100% - 130px); /* Adjusted width to account for logo and menu button */
+            justify-content: flex-start; /* Align items to the start of the container */
+        }
+        .top-nav nav {
+            margin-left: 20px; /* Adjust spacing between logo and navigation links */
         }
         .top-nav a {
             color: white;
