@@ -18,6 +18,8 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin-top: 80px; /* Adjusted to avoid content being hidden behind the fixed header */
+            min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+            position: relative; /* Ensure positioning of footer and button */
         }
         header {
             background-color: black; /* Set black background color for the header */
@@ -51,8 +53,9 @@
         main {
             background-color: #fff; /* White background for main content */
             padding: 50px;
-            min-height: 100vh; /* Set minimum height to viewport height */
-            position: relative; /* Ensure the button can be positioned at the bottom */
+            min-height: calc(100vh - 150px); /* Adjust height to fit the footer */
+            position: relative; /* Ensure the button can be positioned absolutely within the page */
+            padding-bottom: 100px; /* Extra padding for spacing */
         }
         .catchphrase {
             font-size: 1.5em;
@@ -108,10 +111,9 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            position: absolute; /* Positioned absolutely within the main container */
-            bottom: 20px; /* Distance from the bottom of the main container */
-            left: 50%; /* Centered horizontally */
-            transform: translateX(-50%); /* Center alignment adjustment */
+            position: fixed; /* Fixed position at the bottom right */
+            bottom: 20px; /* Distance from the bottom of the viewport */
+            right: 20px; /* Distance from the right edge of the viewport */
             text-decoration: none;
         }
         .youtube-button:hover {
@@ -158,10 +160,12 @@
         <h3>Tip #5</h3>
         <p>Rest and recovery are just as important as exercise – make sure to get enough sleep.</p>
     </div>
-    <a href="https://www.youtube.com/@Fedot-j8t" class="youtube-button" target="_blank">
-        <i class="fab fa-youtube"></i>
-    </a>
 </main>
+
+<!-- YouTube button at the bottom right of the viewport -->
+<a href="https://www.youtube.com/@Fedot-j8t" class="youtube-button" target="_blank">
+    <i class="fab fa-youtube"></i>
+</a>
 
 <!-- Font Awesome script for YouTube icon -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
