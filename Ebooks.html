@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-books</title>
     <style>
         /* Reset default margin and padding for all elements */
@@ -50,9 +52,11 @@
             padding-top: 180px; /* Ensure content is below the fixed header */
             margin-top: 80px; /* Provide space for the fixed header */
             min-height: 100vh; /* Set minimum height to viewport height */
+            color: #000; /* Text color inside main */
         }
         h1 {
             color: #7851A9; /* Royal purple color for heading */
+            margin-bottom: 40px; /* Add more space below the title */
         }
         .ebook-list {
             list-style-type: none; /* Remove default list styling */
@@ -62,12 +66,12 @@
             margin: 20px 0; /* Space between list items */
             font-size: 1.2em; /* Increase font size */
         }
-        .back-link {
-            color: #7851A9; /* Royal purple color for back link */
-            text-decoration: none;
-            font-size: 1.2em; /* Increase font size */
-            margin-top: 20px;
-            display: inline-block;
+        .ebook-list a {
+            color: #7851A9; /* Purple color for book links */
+            text-decoration: none; /* Remove underline from links */
+        }
+        .ebook-list a:hover {
+            text-decoration: underline; /* Underline on hover */
         }
     </style>
 </head>
@@ -89,10 +93,9 @@
     <h1>E-books</h1>
     <ul class="ebook-list">
         <li><a href="Book.html">High Protein, Low Calorie: Delicious Recipes for Every Meal</a></li>
-        <li><a href="Book2.html">Tasty and Healthy Recipes for daily life </a></li>
+        <li><a href="Book2.html">Tasty and Healthy Recipes for Daily Life</a></li>
         <li><a href="Book3.html">The Lean Kitchen: Low-Calorie Recipes for a Balanced Diet</a></li>
     </ul>
-    <a href="Dotov1.html" class="back-link">Back to Home</a>
 </main>
 
 </body>
