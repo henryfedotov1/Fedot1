@@ -52,6 +52,7 @@
             background-color: #fff; /* White background for main content */
             padding: 50px;
             min-height: 100vh; /* Set minimum height to viewport height */
+            position: relative; /* Ensure the button can be positioned at the bottom */
         }
         .catchphrase {
             font-size: 1.5em;
@@ -101,13 +102,16 @@
             color: #fff;
             border: none;
             border-radius: 50%;
-            padding: 20px; /* Adjust padding to size of the button */
-            font-size: 2em; /* Size of the icon */
+            padding: 15px; /* Adjusted padding to size of the button */
+            font-size: 1.5em; /* Size of the icon */
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-top: 30px;
+            position: absolute; /* Positioned absolutely within the main container */
+            bottom: 30px; /* Distance from the bottom of the main container */
+            left: 50%; /* Centered horizontally */
+            transform: translateX(-50%); /* Center alignment adjustment */
             text-decoration: none;
         }
         .youtube-button:hover {
@@ -150,7 +154,10 @@
         <h3>Tip #4</h3>
         <p>Proper form is crucial to prevent injuries – don’t sacrifice form for heavier weights.</p>
     </div>
-    
+    <div class="tip-popup">
+        <h3>Tip #5</h3>
+        <p>Rest and recovery are just as important as exercise – make sure to get enough sleep.</p>
+    </div>
     <a href="https://www.youtube.com/@Fedot-j8t" class="youtube-button" target="_blank">
         <i class="fab fa-youtube"></i>
     </a>
