@@ -36,19 +36,20 @@
             width: 100%; /* Ensure header spans the entire width */
         }
         .logo {
-            width: 100px; /* Adjusted the logo size */
+            width: 80px; /* Adjusted size for responsiveness */
             margin-right: 20px; /* Added margin between logo and navigation */
         }
         .top-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap; /* Allow navigation to wrap on smaller screens */
         }
         .top-nav a {
             color: white;
             text-decoration: none;
-            margin-right: 20px;
-            font-size: 1.2em;
+            margin: 5px; /* Adjusted margin for better spacing on smaller screens */
+            font-size: 1em; /* Adjust font size for better readability on mobile */
         }
         main {
             background-color: #fff; /* White background for main content */
@@ -59,14 +60,14 @@
             position: relative; /* Ensure the button can be positioned absolutely within the page */
         }
         .catchphrase {
-            font-size: 2em; /* Adjusted font size for the title */
+            font-size: 1.8em; /* Adjusted font size for the title */
             font-weight: bold;
-            margin-bottom: 60px; /* Increased space below the catchphrase */
+            margin-bottom: 40px; /* Reduced space below the catchphrase for smaller screens */
             color: #7851A9; /* Royal purple color for catchphrase */
         }
         p {
-            font-size: 1.2em;
-            margin-bottom: 40px;
+            font-size: 1em; /* Adjust font size for better readability on mobile */
+            margin-bottom: 30px; /* Reduced margin for better spacing on smaller screens */
             white-space: pre-wrap; /* This allows text to wrap to the next line */
             color: #7851A9; /* Royal purple color for paragraph text */
         }
@@ -75,30 +76,30 @@
             color: #fff;
             border: 1px solid #7851A9;
             border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
+            padding: 15px;
+            margin: 15px 0;
             display: inline-block;
             position: relative;
             text-align: left;
-            width: 80%;
+            width: 90%; /* Adjust width for smaller screens */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         .tip-popup::before {
             content: '';
             position: absolute;
             top: 50%;
-            left: -20px;
+            left: -15px; /* Adjusted position for responsiveness */
             border-width: 10px;
             border-style: solid;
             border-color: transparent rgba(255, 255, 255, 0.1) transparent transparent;
         }
         .tip-popup h3 {
-            font-size: 1.5em;
+            font-size: 1.3em; /* Adjusted font size for headings */
             margin-bottom: 10px;
             color: #7851A9;
         }
         .tip-popup p {
-            font-size: 1.2em;
+            font-size: 1em; /* Adjusted font size for tip text */
             color: #7851A9; /* Royal purple color for tip text */
         }
         .youtube-button {
@@ -106,8 +107,8 @@
             color: #fff;
             border: none;
             border-radius: 50%;
-            padding: 20px; /* Adjusted padding to size of the button */
-            font-size: 2em; /* Size of the icon */
+            padding: 15px; /* Adjusted padding for smaller screens */
+            font-size: 1.5em; /* Adjusted size of the icon */
             cursor: pointer;
             display: inline-flex;
             align-items: center;
@@ -122,6 +123,77 @@
         }
         .youtube-button i {
             font-size: 1.5em; /* Adjust icon size */
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column; /* Stack logo and navigation vertically */
+                text-align: center;
+            }
+            .logo {
+                width: 70px; /* Smaller logo size for smaller screens */
+            }
+            .top-nav {
+                flex-direction: column;
+            }
+            .top-nav a {
+                margin: 10px 0; /* Adjust margin for better spacing on smaller screens */
+                font-size: 1em;
+            }
+            main {
+                padding: 20px;
+                padding-top: 200px; /* Adjusted space from header */
+            }
+            .catchphrase {
+                font-size: 1.5em; /* Reduced font size for smaller screens */
+                margin-bottom: 30px;
+            }
+            .tip-popup {
+                width: 100%; /* Full width for better readability */
+                padding: 10px;
+                margin: 10px 0;
+            }
+            .tip-popup h3 {
+                font-size: 1.2em;
+            }
+            .tip-popup p {
+                font-size: 1em;
+            }
+            .youtube-button {
+                padding: 10px; /* Smaller button padding */
+                font-size: 1.2em; /* Adjusted size of the icon */
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                width: 60px; /* Further reduced logo size for very small screens */
+            }
+            .top-nav a {
+                font-size: 0.9em; /* Smaller font size for navigation links */
+            }
+            .catchphrase {
+                font-size: 1.2em; /* Further reduced font size */
+            }
+            .tip-popup {
+                padding: 8px;
+                margin: 8px 0;
+            }
+            .tip-popup h3 {
+                font-size: 1.1em;
+            }
+            .tip-popup p {
+                font-size: 0.9em;
+            }
+            .youtube-button {
+                padding: 8px;
+                font-size: 1em;
+                bottom: 5px;
+                right: 5px;
+            }
         }
     </style>
 </head>
