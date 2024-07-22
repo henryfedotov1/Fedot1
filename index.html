@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fedot</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Reset default margin and padding for all elements */
         * {
@@ -15,15 +16,16 @@
         body {
             background-color: #000; /* Set black background color for the body */
             color: #fff; /* Set text color to white */
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', Arial, sans-serif;
             text-align: center;
             margin-top: 80px; /* Adjusted to avoid content being hidden behind the fixed header */
             min-height: 120vh; /* Increased height to make the page longer */
             position: relative; /* Ensure positioning of footer and button */
             overflow-x: hidden; /* Prevent horizontal scroll */
+            scroll-behavior: smooth; /* Enable smooth scrolling */
         }
         header {
-            background-color: black; /* Set black background color for the header */
+            background-color: #222; /* Set black background color for the header */
             color: white; /* White text color for the header */
             padding: 10px;
             display: flex;
@@ -35,10 +37,13 @@
             right: 0;
             z-index: 1000;
             width: 100%; /* Ensure header spans the entire width */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+            border-bottom: 2px solid #7851A9; /* Border color */
         }
         .logo {
             width: 100px; /* Adjusted the logo size */
             margin-right: 20px; /* Added margin between logo and navigation */
+            border-radius: 5px; /* Rounded corners for logo */
         }
         .top-nav {
             display: flex;
@@ -54,6 +59,10 @@
             text-decoration: none;
             margin-right: 20px;
             font-size: 1.2em;
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+        .top-nav a:hover {
+            color: #7851A9; /* Change to complementary color on hover */
         }
         .menu-button {
             display: none; /* Hide menu button by default */
@@ -67,6 +76,7 @@
             top: 10px;
             left: 10px; /* Position in the top-left corner */
             z-index: 1002; /* Ensure it's above other content */
+            border-radius: 5px; /* Rounded corners for button */
         }
         .menu-button i {
             font-size: 1.2em; /* Smaller icon size */
@@ -78,6 +88,8 @@
             padding-bottom: 100px; /* Extra padding for spacing and longer page */
             min-height: calc(100vh - 150px); /* Adjust height to fit the footer */
             position: relative; /* Ensure the button can be positioned absolutely within the page */
+            border-radius: 10px; /* Rounded corners for main content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
         }
         .catchphrase {
             font-size: 2em; /* Adjusted font size for the title */
@@ -103,6 +115,10 @@
             text-align: left;
             width: 80%;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease; /* Smooth transition for hover effect */
+        }
+        .tip-popup:hover {
+            transform: scale(1.05); /* Slightly enlarge on hover */
         }
         .tip-popup::before {
             content: '';
@@ -137,6 +153,8 @@
             bottom: 20px; /* Distance from the bottom of the viewport */
             right: 20px; /* Distance from the right edge of the viewport */
             text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+            transition: background-color 0.3s ease; /* Smooth color transition */
         }
         .youtube-button:hover {
             background-color: #CC0000; /* Darker red on hover */
@@ -158,6 +176,8 @@
             z-index: 1000;
             overflow-y: auto;
             padding: 20px;
+            border-radius: 10px 0 0 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
         }
         .sidebar.open {
             left: 0; /* Show sidebar when open */
@@ -178,6 +198,10 @@
             display: flex;
             align-items: center;
             gap: 10px; /* Space between icon and text */
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+        .sidebar ul li a:hover {
+            color: #7851A9; /* Change to complementary color on hover */
         }
         .sidebar ul li a i {
             margin-right: 10px; /* Additional space between icon and text */
@@ -190,6 +214,10 @@
             text-decoration: none;
             margin-right: 10px;
             font-size: 1.5em;
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+        .sidebar .social_media a:hover {
+            color: #7851A9; /* Change to complementary color on hover */
         }
 
         /* Responsive design */
