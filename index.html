@@ -8,217 +8,217 @@
     <style>
         /* Reset default margin and padding for all elements */
         * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-    background-color: #000; /* Set black background color for the body */
-    color: #fff; /* Set text color to white */
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 80px; /* Adjusted to avoid content being hidden behind the fixed header */
-    min-height: 120vh; /* Increased height to make the page longer */
-    position: relative; /* Ensure positioning of footer and button */
-    overflow-x: hidden; /* Prevent horizontal scroll */
-}
-header {
-    background-color: black; /* Set black background color for the header */
-    color: white; /* White text color for the header */
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    width: 100%; /* Ensure header spans the entire width */
-}
-.logo {
-    width: 100px; /* Adjusted the logo size */
-    margin-right: 20px; /* Added margin between logo and navigation */
-}
-.top-nav {
-    display: flex;
-    align-items: center; /* Align items vertically center */
-    width: calc(100% - 130px); /* Adjusted width to account for logo and menu button */
-    justify-content: flex-start; /* Align items to the start of the container */
-}
-.top-nav nav {
-    margin-left: 20px; /* Adjust spacing between logo and navigation links */
-}
-.top-nav a {
-    color: white;
-    text-decoration: none;
-    margin-right: 20px;
-    font-size: 1.2em;
-}
-.menu-button {
-    display: none; /* Hide menu button by default */
-    font-size: 1.5em; /* Smaller font size */
-    cursor: pointer;
-    background: none; /* Remove background color */
-    border: none;
-    color: #fff; /* White color for the icon */
-    padding: 10px; /* Smaller padding */
-    position: absolute; /* Absolute positioning for proper placement */
-    top: 10px;
-    left: 10px; /* Position in the top-left corner */
-    z-index: 1002; /* Ensure it's above other content */
-}
-.menu-button i {
-    font-size: 1.2em; /* Smaller icon size */
-}
-main {
-    background-color: #fff; /* White background for main content */
-    padding: 50px;
-    padding-top: 250px; /* Increased space from the fixed header */
-    padding-bottom: 100px; /* Extra padding for spacing and longer page */
-    min-height: calc(100vh - 150px); /* Adjust height to fit the footer */
-    position: relative; /* Ensure the button can be positioned absolutely within the page */
-}
-.catchphrase {
-    font-size: 2em; /* Adjusted font size for the title */
-    font-weight: bold;
-    margin-bottom: 60px; /* Increased space below the catchphrase */
-    color: #7851A9; /* Royal purple color for catchphrase */
-}
-p {
-    font-size: 1.2em;
-    margin-bottom: 40px;
-    white-space: pre-wrap; /* This allows text to wrap to the next line */
-    color: #7851A9; /* Royal purple color for paragraph text */
-}
-.tip-popup {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border: 1px solid #7851A9;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px 0;
-    display: inline-block;
-    position: relative;
-    text-align: left;
-    width: 80%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-.tip-popup::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -20px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent rgba(255, 255, 255, 0.1) transparent transparent;
-}
-.tip-popup h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #7851A9;
-}
-.tip-popup p {
-    font-size: 1.2em;
-    color: #7851A9; /* Royal purple color for tip text */
-}
-.youtube-button {
-    background-color: #FF0000; /* YouTube red */
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    padding: 20px; /* Adjusted padding to size of the button */
-    font-size: 2em; /* Size of the icon */
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed; /* Fixed position at the bottom right */
-    bottom: 20px; /* Distance from the bottom of the viewport */
-    right: 20px; /* Distance from the right edge of the viewport */
-    text-decoration: none;
-}
-.youtube-button:hover {
-    background-color: #CC0000; /* Darker red on hover */
-}
-.youtube-button i {
-    font-size: 1.5em; /* Adjust icon size */
-}
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #000; /* Set black background color for the body */
+            color: #fff; /* Set text color to white */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 80px; /* Adjusted to avoid content being hidden behind the fixed header */
+            min-height: 120vh; /* Increased height to make the page longer */
+            position: relative; /* Ensure positioning of footer and button */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        header {
+            background-color: black; /* Set black background color for the header */
+            color: white; /* White text color for the header */
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            width: 100%; /* Ensure header spans the entire width */
+        }
+        .logo {
+            width: 100px; /* Adjusted the logo size */
+            margin-right: 20px; /* Added margin between logo and navigation */
+        }
+        .top-nav {
+            display: flex;
+            align-items: center; /* Align items vertically center */
+            width: calc(100% - 130px); /* Adjusted width to account for logo and menu button */
+            justify-content: flex-start; /* Align items to the start of the container */
+        }
+        .top-nav nav {
+            margin-left: 20px; /* Adjust spacing between logo and navigation links */
+        }
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 1.2em;
+        }
+        .menu-button {
+            display: none; /* Hide menu button by default */
+            font-size: 1.5em; /* Smaller font size */
+            cursor: pointer;
+            background: none; /* Remove background color */
+            border: none;
+            color: #fff; /* White color for the icon */
+            padding: 10px; /* Smaller padding */
+            position: absolute; /* Absolute positioning for proper placement */
+            top: 10px;
+            left: 10px; /* Position in the top-left corner */
+            z-index: 1002; /* Ensure it's above other content */
+        }
+        .menu-button i {
+            font-size: 1.2em; /* Smaller icon size */
+        }
+        main {
+            background-color: #fff; /* White background for main content */
+            padding: 50px;
+            padding-top: 250px; /* Increased space from the fixed header */
+            padding-bottom: 100px; /* Extra padding for spacing and longer page */
+            min-height: calc(100vh - 150px); /* Adjust height to fit the footer */
+            position: relative; /* Ensure the button can be positioned absolutely within the page */
+        }
+        .catchphrase {
+            font-size: 2em; /* Adjusted font size for the title */
+            font-weight: bold;
+            margin-bottom: 60px; /* Increased space below the catchphrase */
+            color: #7851A9; /* Royal purple color for catchphrase */
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            white-space: pre-wrap; /* This allows text to wrap to the next line */
+            color: #7851A9; /* Royal purple color for paragraph text */
+        }
+        .tip-popup {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid #7851A9;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            display: inline-block;
+            position: relative;
+            text-align: left;
+            width: 80%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .tip-popup::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -20px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent rgba(255, 255, 255, 0.1) transparent transparent;
+        }
+        .tip-popup h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #7851A9;
+        }
+        .tip-popup p {
+            font-size: 1.2em;
+            color: #7851A9; /* Royal purple color for tip text */
+        }
+        .youtube-button {
+            background-color: #FF0000; /* YouTube red */
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            padding: 20px; /* Adjusted padding to size of the button */
+            font-size: 2em; /* Size of the icon */
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed; /* Fixed position at the bottom right */
+            bottom: 20px; /* Distance from the bottom of the viewport */
+            right: 20px; /* Distance from the right edge of the viewport */
+            text-decoration: none;
+        }
+        .youtube-button:hover {
+            background-color: #CC0000; /* Darker red on hover */
+        }
+        .youtube-button i {
+            font-size: 1.5em; /* Adjust icon size */
+        }
 
-/* Sidebar styles */
-.sidebar {
-    height: 100%;
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: -250px; /* Hide sidebar by default */
-    background-color: #333;
-    color: #fff;
-    transition: left 0.3s ease;
-    z-index: 1000;
-    overflow-y: auto;
-    padding: 20px;
-}
-.sidebar.open {
-    left: 0; /* Show sidebar when open */
-}
-.sidebar h2 {
-    margin-bottom: 20px;
-}
-.sidebar ul {
-    list-style: none;
-}
-.sidebar ul li {
-    margin-bottom: 15px;
-}
-.sidebar ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.2em;
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Space between icon and text */
-}
-.sidebar ul li a i {
-    margin-right: 10px; /* Additional space between icon and text */
-}
-.sidebar .social_media {
-    margin-top: 20px;
-}
-.sidebar .social_media a {
-    color: #fff;
-    text-decoration: none;
-    margin-right: 10px;
-    font-size: 1.5em;
-}
+        /* Sidebar styles */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px; /* Hide sidebar by default */
+            background-color: #333;
+            color: #fff;
+            transition: left 0.3s ease;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        .sidebar.open {
+            left: 0; /* Show sidebar when open */
+        }
+        .sidebar h2 {
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+        }
+        .sidebar ul li {
+            margin-bottom: 15px;
+        }
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Space between icon and text */
+        }
+        .sidebar ul li a i {
+            margin-right: 10px; /* Additional space between icon and text */
+        }
+        .sidebar .social_media {
+            margin-top: 20px;
+        }
+        .sidebar .social_media a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    .top-nav {
-        display: none; /* Hide top navigation links on mobile */
-    }
-    .menu-button {
-        display: block; /* Show menu button on mobile */
-    }
-    .sidebar {
-        width: 100%; /* Full width sidebar on mobile */
-        left: -100%; /* Start off-screen */
-    }
-    .sidebar.open {
-        left: 0; /* Slide in the sidebar */
-    }
-}
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .top-nav {
+                display: none; /* Hide top navigation links on mobile */
+            }
+            .menu-button {
+                display: block; /* Show menu button on mobile */
+            }
+            .sidebar {
+                width: 100%; /* Full width sidebar on mobile */
+                left: -100%; /* Start off-screen */
+            }
+            .sidebar.open {
+                left: 0; /* Slide in the sidebar */
+            }
+        }
 
-/* Extra check for very small screens */
-@media (max-width: 390px) {
-    .menu-button {
-        font-size: 1.2em; /* Ensure button is not too large */
-        padding: 8px; /* Adjust padding for very small screens */
-    }
-    .menu-button i {
-        font-size: 1em; /* Smaller icon size for very small screens */
-    }
-}
+        /* Extra check for very small screens */
+        @media (max-width: 390px) {
+            .menu-button {
+                font-size: 1.2em; /* Ensure button is not too large */
+                padding: 8px; /* Adjust padding for very small screens */
+            }
+            .menu-button i {
+                font-size: 1em; /* Smaller icon size for very small screens */
+            }
+        }
     </style>
 </head>
 <body>
