@@ -19,7 +19,6 @@
             color: white; /* White text color for the header */
             padding: 10px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
             position: fixed;
             top: 0;
@@ -34,9 +33,11 @@
         }
         .top-nav {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            width: 100%;
+            margin-left: 20px; /* Space between the left edge and the navigation links */
+        }
+        .top-nav nav {
+            display: flex;
         }
         .top-nav a {
             color: white;
@@ -47,7 +48,7 @@
         main {
             background-color: #fff; /* White background for main content */
             padding: 50px;
-            padding-top: 180px; /* Ensure content is below the fixed header */
+            padding-top: 150px; /* Ensure content is below the fixed header */
             margin-top: 80px; /* Provide space for the fixed header */
             min-height: 100vh; /* Set minimum height to viewport height */
             color: #000; /* Set text color to black */
