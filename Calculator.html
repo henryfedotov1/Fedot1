@@ -11,7 +11,6 @@
             color: #fff; /* Set text color to white */
             font-family: Arial, sans-serif;
             text-align: center;
-            padding: 50px;
             margin: 0;
         }
         header {
@@ -49,9 +48,10 @@
             background-color: #fff; /* White background for main content */
             padding: 50px;
             padding-top: 150px; /* Ensure content is below the fixed header */
-            margin-top: 80px; /* Provide space for the fixed header */
+            margin: 0; /* Remove margin to avoid columns */
             min-height: 100vh; /* Set minimum height to viewport height */
             color: #000; /* Set text color to black */
+            box-sizing: border-box; /* Ensure padding is included in width */
         }
         h1 {
             font-size: 2em;
