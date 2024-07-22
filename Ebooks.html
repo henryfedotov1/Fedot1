@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-books</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Reset default margin and padding for all elements */
         * {
@@ -16,9 +15,8 @@
         body {
             background-color: #000; /* Set black background color for the body */
             color: #fff; /* Set text color to white */
-            font-family: 'Roboto', sans-serif; /* Use Roboto font */
+            font-family: Arial, sans-serif;
             text-align: center;
-            scroll-behavior: smooth; /* Smooth scrolling */
         }
         header {
             background-color: black; /* Set black background color for the header */
@@ -33,7 +31,6 @@
             right: 0;
             z-index: 1000;
             width: 100%; /* Ensure header spans the entire width */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add box shadow */
         }
         .logo {
             width: 100px; /* Adjusted the logo size */
@@ -49,12 +46,6 @@
             text-decoration: none;
             margin-right: 20px;
             font-size: 1.2em;
-            padding: 5px 10px; /* Add padding */
-            border-radius: 5px; /* Rounded corners */
-            transition: background-color 0.3s; /* Smooth transition for hover effect */
-        }
-        .top-nav a:hover {
-            background-color: rgba(255, 255, 255, 0.1); /* Hover effect */
         }
         main {
             background-color: #fff; /* White background for main content */
@@ -63,8 +54,6 @@
             margin-top: 80px; /* Provide space for the fixed header */
             min-height: 100vh; /* Set minimum height to viewport height */
             color: #000; /* Text color inside main */
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
         }
         h1 {
             color: #7851A9; /* Royal purple color for heading */
@@ -81,10 +70,8 @@
         .ebook-list a {
             color: #7851A9; /* Purple color for book links */
             text-decoration: none; /* Remove underline from links */
-            transition: color 0.3s; /* Smooth transition for hover effect */
         }
         .ebook-list a:hover {
-            color: #563d7c; /* Darker purple on hover */
             text-decoration: underline; /* Underline on hover */
         }
 
@@ -101,14 +88,12 @@
             z-index: 1000;
             overflow-y: auto;
             padding: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Add box shadow */
         }
         .sidebar.open {
             left: 0; /* Show sidebar when open */
         }
         .sidebar h2 {
             margin-bottom: 20px;
-            font-size: 1.5em; /* Increased font size for headings */
         }
         .sidebar ul {
             list-style: none;
@@ -123,15 +108,9 @@
             font-size: 1.2em;
             display: flex;
             align-items: center;
-            padding: 10px;
-            border-radius: 5px; /* Rounded corners */
-            transition: background-color 0.3s; /* Smooth transition for hover effect */
-        }
-        .sidebar ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.1); /* Hover effect */
         }
         .sidebar ul li a i {
-            margin-right: 10px; /* Adjust space between icon and text */
+            margin-right: 20px; /* Increased space between icon and text */
         }
         .sidebar .social_media {
             margin-top: 20px;
@@ -141,10 +120,6 @@
             text-decoration: none;
             margin-right: 10px;
             font-size: 1.5em;
-            transition: color 0.3s; /* Smooth transition for hover effect */
-        }
-        .sidebar .social_media a:hover {
-            color: #7851A9; /* Purple color on hover */
         }
 
         /* Menu button styles */
