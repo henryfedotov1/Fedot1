@@ -109,7 +109,7 @@
         }
 
         /* Menu button styles */
-        .menu-button {
+        .menu-button, .bottom-menu-button {
             display: none; /* Hide menu button by default */
             font-size: 1.5em; /* Smaller font size */
             cursor: pointer;
@@ -117,12 +117,19 @@
             border: none;
             color: #fff; /* White color for the icon */
             padding: 10px; /* Smaller padding */
-            position: absolute; /* Absolute positioning for proper placement */
-            top: 10px;
-            left: 10px; /* Position in the top-left corner */
+            position: fixed; /* Fixed positioning for proper placement */
             z-index: 1002; /* Ensure it's above other content */
         }
-        .menu-button i {
+        .menu-button {
+            top: 10px;
+            left: 10px; /* Position in the top-left corner */
+        }
+        .bottom-menu-button {
+            bottom: 10px; /* Position at the bottom */
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+        }
+        .menu-button i, .bottom-menu-button i {
             font-size: 1.2em; /* Smaller icon size */
         }
 
@@ -131,18 +138,18 @@
             .top-nav {
                 display: none; /* Hide top navigation links on mobile */
             }
-            .menu-button {
+            .menu-button, .bottom-menu-button {
                 display: block; /* Show menu button on mobile */
             }
         }
 
         /* Extra check for very small screens */
         @media (max-width: 390px) {
-            .menu-button {
+            .menu-button, .bottom-menu-button {
                 font-size: 1.2em; /* Ensure button is not too large */
                 padding: 8px; /* Adjust padding for very small screens */
             }
-            .menu-button i {
+            .menu-button i, .bottom-menu-button i {
                 font-size: 1em; /* Smaller icon size for very small screens */
             }
         }
@@ -257,5 +264,11 @@
         document.getElementById(calculator).style.display = 'block';
     }
 </script>
+
+<!-- Bottom menu button -->
+<button class="bottom-menu-button" onclick="toggleSidebar()">
+    <i class="fas fa-bars"></i>
+</button>
+
 </body>
 </html>
