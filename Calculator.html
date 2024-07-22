@@ -108,53 +108,6 @@
             background-color: #333;
         }
 
-        /* Sidebar styles */
-        .sidebar {
-            height: 100%;
-            width: 250px;
-            position: fixed;
-            top: 0;
-            left: -250px; /* Hide sidebar by default */
-            background-color: #333;
-            color: #fff;
-            transition: left 0.3s ease;
-            z-index: 1000;
-            overflow-y: auto;
-            padding: 20px;
-        }
-        .sidebar.open {
-            left: 0; /* Show sidebar when open */
-        }
-        .sidebar h2 {
-            margin-bottom: 20px;
-        }
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
-        .sidebar ul li {
-            margin-bottom: 15px;
-        }
-        .sidebar ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2em;
-            display: flex;
-            align-items: center;
-        }
-        .sidebar ul li a i {
-            margin-right: 20px; /* Space between icon and text */
-        }
-        .sidebar .social_media {
-            margin-top: 20px;
-        }
-        .sidebar .social_media a {
-            color: #fff;
-            text-decoration: none;
-            margin-right: 10px;
-            font-size: 1.5em;
-        }
-
         /* Menu button styles */
         .menu-button {
             display: none; /* Hide menu button by default */
@@ -180,13 +133,6 @@
             }
             .menu-button {
                 display: block; /* Show menu button on mobile */
-            }
-            .sidebar {
-                width: 100%; /* Full width sidebar on mobile */
-                left: -100%; /* Start off-screen */
-            }
-            .sidebar.open {
-                left: 0; /* Slide in the sidebar */
             }
         }
 
@@ -259,29 +205,12 @@
     </div>
 </main>
 
-<!-- Sidebar -->
-<div id="sidebar" class="sidebar">
-    <h2>Menu</h2>
-    <ul>
-        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="Ebooks.html"><i class="fas fa-book"></i> E-books</a></li>
-        <li><a href="Aboutus.html"><i class="fas fa-user"></i> About Us</a></li>
-        <li><a href="Calculator.html"><i class="fas fa-calculator"></i> Fitness Calculator</a></li>
-    </ul>
-    <div class="social_media">
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-</div>
-
 <!-- Font Awesome script for icons -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 
 <script>
     function toggleSidebar() {
-        const sidebar = document.getElementById('sidebar');
-        sidebar.classList.toggle('open');
+        // Sidebar is removed, so this function is no longer needed.
     }
 
     function calculateCalories() {
