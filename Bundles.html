@@ -1,1 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price List</title>
+    <style>
+        body {
+            background-color: #fff; /* White background */
+            color: #000;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            min-height: 100vh; /* Full height */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .language-selector {
+            margin: 20px;
+        }
+        .language-selector label {
+            font-size: 1.2em;
+            margin-right: 10px;
+            color: #7851A9; /* Royal purple color */
+        }
+        .language-selector select {
+            font-size: 1.2em;
+            padding: 10px;
+            border: 2px solid #7851A9; /* Royal purple border */
+            border-radius: 5px;
+            background-color: #f4f4f4;
+            color: #000;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+        .language-selector select:hover {
+            border-color: #6a4596; /* Darker purple on hover */
+        }
+        .bundle {
+            display: none;
+            padding: 20px;
+            border: 2px solid #7851A9; /* Royal purple border */
+            border-radius: 10px;
+            margin: 20px;
+            width: 80%;
+            max-width: 600px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        .bundle h2 {
+            color: #7851A9; /* Royal purple color for headings */
+        }
+        .bundle p {
+            font-size: 1.2em;
+        }
+        .cta-button {
+            background-color: #7851A9; /* Royal purple background */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 15px;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #6a4596; /* Darker purple for hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="language-selector">
+        <label for="language-select">Select Language:</label>
+        <select id="language-select" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="he">עברית</option>
+        </select>
+    </div>
+
+    <div id="en" class="bundle">
+        <h2>Basic Bundle</h2>
+        <p>This bundle includes basic training services at an affordable rate. Perfect for beginners.</p>
+        <a href="link-to-basic-bundle" class="cta-button">Purchase Basic Bundle</a>
+    </div>
+
+    <div id="en" class="bundle">
+        <h2>Intermediate Bundle</h2>
+        <p>This bundle includes intermediate training services for those looking to step up their game.</p>
+        <a href="link-to-intermediate-bundle" class="cta-button">Purchase Intermediate Bundle</a>
+    </div>
+
+    <div id="he" class="bundle">
+        <h2>חבילת בסיס</h2>
+        <p>חבילה זו כוללת שירותי אימון בסיסיים במחיר נגיש. מושלם למתחילים.</p>
+        <a href="link-to-basic-bundle" class="cta-button">רכוש חבילת בסיס</a>
+    </div>
+
+    <div id="he" class="bundle">
+        <h2>חבילת ביניים</h2>
+        <p>חבילה זו כוללת שירותי אימון מתקדמים למי שמעוניין לשדרג את האימון שלו.</p>
+        <a href="link-to-intermediate-bundle" class="cta-button">רכוש חבילת ביניים</a>
+    </div>
+
+    <script>
+        function changeLanguage() {
+            var selectedLanguage = document.getElementById('language-select').value;
+            var bundles = document.getElementsByClassName('bundle');
+            for (var i = 0; i < bundles.length; i++) {
+                bundles[i].style.display = 'none';
+            }
+            var selectedBundles = document.querySelectorAll('#' + selectedLanguage + '.bundle');
+            for (var i = 0; i < selectedBundles.length; i++) {
+                selectedBundles[i].style.display = 'block';
+            }
+        }
+
+        // Display default language on page load
+        window.onload = function() {
+            document.getElementById('en').style.display = 'block'; // Default to English
+        }
+    </script>
+</body>
+</html>
 
