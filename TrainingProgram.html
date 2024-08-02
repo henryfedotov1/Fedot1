@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Training Program - Fedot</title>
+    <title>Training Program</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Reset default margin and padding for all elements */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         body {
-            background-color: #fff; /* White background for the body */
-            color: #000; /* Black text color */
+            background-color: #fff;
+            color: #000;
             font-family: Arial, sans-serif;
             text-align: center;
+            margin: 0;
+            min-height: 120vh;
+            position: relative;
+            overflow-x: hidden;
         }
         header {
-            background-color: black; /* Black background color for the header */
-            color: white; /* White text color for the header */
+            background-color: black;
+            color: white;
             padding: 10px;
             display: flex;
             justify-content: space-between;
@@ -30,108 +33,167 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            width: 100%; /* Ensure header spans the entire width */
+            width: 100%;
         }
         .logo {
-            width: 100px; /* Adjusted the logo size */
-            margin-right: 20px; /* Added margin between logo and navigation */
+            width: 100px;
+            margin-right: 20px;
         }
         .top-nav {
             display: flex;
-            align-items: center; /* Align items vertically center */
-            width: calc(100% - 130px); /* Adjusted width to account for logo and menu button */
-            justify-content: flex-end; /* Align items to the end of the container */
+            align-items: center;
+            width: calc(100% - 130px);
+            justify-content: flex-start;
+        }
+        .top-nav nav {
+            margin-left: 20px;
         }
         .top-nav a {
             color: white;
             text-decoration: none;
-            margin-left: 20px; /* Space between navigation items */
+            margin-right: 20px;
             font-size: 1.2em;
         }
         .menu-button {
-            display: none; /* Hide menu button by default */
-            font-size: 1.5em; /* Smaller font size */
+            display: none;
+            font-size: 1.5em;
             cursor: pointer;
-            background: none; /* Remove background color */
+            background: none;
             border: none;
-            color: #fff; /* White color for the icon */
-            padding: 10px; /* Smaller padding */
-            position: absolute; /* Absolute positioning for proper placement */
+            color: #fff;
+            padding: 10px;
+            position: absolute;
             top: 10px;
-            left: 10px; /* Position in the top-left corner */
-            z-index: 1002; /* Ensure it's above other content */
+            left: 10px;
+            z-index: 1002;
         }
         .menu-button i {
-            font-size: 1.2em; /* Smaller icon size */
+            font-size: 1.2em;
         }
         main {
+            background-color: #fff;
             padding: 50px;
-            padding-top: 100px; /* Increased space from the fixed header */
-            padding-bottom: 100px; /* Extra padding for spacing and longer page */
-            min-height: calc(100vh - 150px); /* Adjust height to fit the footer */
+            padding-top: 80px; /* Adjusted padding-top to match header height */
+            padding-bottom: 100px;
+            min-height: calc(100vh - 150px);
+            position: relative;
+            color: #000;
         }
-        .section-title {
+        .catchphrase {
             font-size: 2em;
             font-weight: bold;
-            margin-bottom: 30px;
-            color: #7851A9; /* Royal purple color for section titles */
+            margin-bottom: 60px;
+            color: #7851A9;
         }
-        .section-content {
+        p {
+            font-size: 1.2em;
             margin-bottom: 40px;
-            color: #333; /* Darker color for content */
-            text-align: left;
-            padding: 20px;
-            background-color: #f4f4f4; /* Light background color for content sections */
-            border-radius: 10px; /* Rounded corners */
-            display: inline-block;
-            width: 80%; /* Adjust width for better readability */
+            white-space: pre-wrap;
+            color: #7851A9;
         }
-        .section-content a {
-            color: #7851A9; /* Royal purple color for links */
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .section-content a:hover {
-            text-decoration: underline; /* Underline on hover for links */
-        }
-        .form-link {
-            margin: 20px;
-            display: inline-block;
-            background-color: #7851A9; /* Royal purple background */
+        .tip-popup {
+            background-color: rgba(255, 255, 255, 0.1);
             color: #fff;
-            padding: 15px 25px;
+            border: 1px solid #7851A9;
             border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            display: inline-block;
+            position: relative;
+            text-align: left;
+            width: 80%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .tip-popup::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -20px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent rgba(255, 255, 255, 0.1) transparent transparent;
+        }
+        .tip-popup h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #7851A9;
+        }
+        .tip-popup p {
+            font-size: 1.2em;
+            color: #7851A9;
+        }
+        /* Sidebar styles */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #333;
+            color: #fff;
+            transition: left 0.3s ease;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        .sidebar.open {
+            left: 0;
+        }
+        .sidebar h2 {
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 15px;
+        }
+        .sidebar ul li a {
+            color: #fff;
             text-decoration: none;
             font-size: 1.2em;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        .form-link:hover {
-            background-color: #6d3f9f; /* Darker purple on hover */
+        .sidebar ul li a i {
+            margin-right: 10px;
+        }
+        .sidebar .social_media {
+            margin-top: 20px;
+        }
+        .sidebar .social_media a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 10px;
+            font-size: 1.5em;
         }
 
         /* Responsive design */
         @media (max-width: 768px) {
             .top-nav {
-                display: none; /* Hide top navigation links on mobile */
+                display: none;
             }
             .menu-button {
-                display: block; /* Show menu button on mobile */
+                display: block;
             }
             .sidebar {
-                width: 100%; /* Full width sidebar on mobile */
-                left: -100%; /* Start off-screen */
+                width: 100%;
+                left: -100%;
             }
             .sidebar.open {
-                left: 0; /* Slide in the sidebar */
+                left: 0;
             }
         }
+
         @media (max-width: 390px) {
             .menu-button {
-                font-size: 1.2em; /* Ensure button is not too large */
-                padding: 8px; /* Adjust padding for very small screens */
+                font-size: 1.2em;
+                padding: 8px;
             }
             .menu-button i {
-                font-size: 1em; /* Smaller icon size for very small screens */
+                font-size: 1em;
             }
         }
     </style>
@@ -154,25 +216,10 @@
 </header>
 
 <main>
-    <div class="section-title">Training Program</div>
-    <div class="section-content">
-        <h2>Personal Training Services</h2>
-        <p>As a dedicated personal trainer, I offer personalized training programs to help you achieve your fitness goals. Whether you're looking to build strength, improve endurance, or just get started on your fitness journey, I am here to support you every step of the way.</p>
-        <a href="price-list.html" class="form-link">View My Price List</a>
-    </div>
-    <div class="section-content">
-        <h2>Training Form</h2>
-        <p>Fill out the training form to get started with your personalized training program. This form will help me understand your fitness goals and preferences.</p>
-        <a href="https://forms.google.com/your-training-form-id" class="form-link" target="_blank">Complete Training Form</a>
-    </div>
-    <div class="section-content">
-        <h2>Nutrition Form</h2>
-        <p>Complete the nutrition form to receive personalized nutrition advice and support. Your answers will help me tailor dietary recommendations to complement your training.</p>
-        <a href="https://forms.google.com/your-nutrition-form-id" class="form-link" target="_blank">Complete Nutrition Form</a>
-    </div>
+    <div class="catchphrase">Achieve Your Peak Performance with Intense Fitness Training!</div>
+    <!-- Your content here -->
 </main>
 
-<!-- Sidebar -->
 <div class="sidebar" id="sidebar">
     <h2>Menu</h2>
     <ul>
@@ -185,10 +232,6 @@
         <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
 </div>
-
-<a href="https://www.youtube.com" class="youtube-button" target="_blank">
-    <i class="fab fa-youtube"></i>
-</a>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 <script>
