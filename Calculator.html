@@ -12,14 +12,12 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
-            padding-top: 70px; /* Adjust to match header height */
         }
         header {
             background-color: black;
             color: white;
             padding: 10px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
             position: fixed;
             top: 0;
@@ -36,7 +34,6 @@
         .top-nav {
             display: flex;
             align-items: center;
-            margin-left: auto;
         }
         .top-nav nav {
             display: flex;
@@ -65,8 +62,8 @@
         }
         main {
             background-color: #fff;
-            padding: 50px;
-            min-height: calc(100vh - 130px); /* Adjust to account for header height */
+            padding-top: 70px; /* Adjusted to match header height */
+            min-height: calc(100vh - 70px); /* Adjusted to account for header height */
             color: #000;
             box-sizing: border-box;
         }
