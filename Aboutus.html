@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Fedot</title>
+    <title>About Us - "Fedot"</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -12,15 +12,18 @@
             box-sizing: border-box;
         }
         body {
-            background-color: #f4f4f4; /* Light background for body */
-            color: #333; /* Dark text color for readability */
+            background-color: #000;
+            color: #fff;
             font-family: Arial, sans-serif;
             text-align: center;
+            min-height: 120vh;
+            position: relative;
+            overflow-x: hidden;
         }
         header {
-            background-color: #333; /* Dark background for header */
-            color: white; /* White text color for the header */
-            padding: 15px 30px;
+            background-color: black;
+            color: white;
+            padding: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -32,25 +35,23 @@
             width: 100%;
         }
         .logo {
-            width: 120px; /* Adjust logo size */
+            width: 100px;
             margin-right: 20px;
         }
         .top-nav {
             display: flex;
             align-items: center;
-            width: calc(100% - 150px); /* Adjust width to fit logo and menu button */
+            justify-content: flex-end;
+            width: calc(100% - 120px); /* Adjusted width to fit the logo */
         }
         .top-nav a {
-            color: #fff;
+            color: white;
             text-decoration: none;
             margin-right: 20px;
             font-size: 1.2em;
         }
-        .top-nav a:hover {
-            color: #d4af37; /* Gold color for hover effect */
-        }
         .menu-button {
-            display: none; /* Hide menu button by default */
+            display: none;
             font-size: 1.5em;
             cursor: pointer;
             background: none;
@@ -58,8 +59,8 @@
             color: #fff;
             padding: 10px;
             position: absolute;
-            top: 15px;
-            left: 15px;
+            top: 10px;
+            left: 10px;
             z-index: 1002;
         }
         .menu-button i {
@@ -67,41 +68,56 @@
         }
         main {
             background-color: #fff;
-            padding: 60px 30px;
-            padding-top: 90px; /* Adjust padding-top to match header height */
+            padding: 50px;
+            padding-top: 80px;
+            padding-bottom: 100px;
             min-height: calc(100vh - 150px);
-            position: relative;
-            color: #333;
-            max-width: 1000px;
-            margin: auto;
-            border: 2px solid #d4af37; /* Gold border */
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #000;
+            text-align: left;
         }
         .catchphrase {
             font-size: 2em;
             font-weight: bold;
             margin-bottom: 60px;
-            color: #7851A9; /* Royal purple color for catchphrase */
+            color: #7851A9;
         }
         p {
             font-size: 1.2em;
             margin-bottom: 40px;
+            color: #7851A9;
             white-space: pre-wrap;
-            color: #7851A9; /* Royal purple color for paragraph text */
         }
         .about-content {
-            color: #000;
-            text-align: left;
-            padding: 20px;
             background-color: #f4f4f4;
+            padding: 20px;
             border-radius: 10px;
         }
         .about-content h2,
         .about-content h3 {
-            margin-top: 40px;
-            margin-bottom: 20px;
             color: #333;
+            margin: 20px 0;
+        }
+        .youtube-button {
+            background-color: #FF0000;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            padding: 20px;
+            font-size: 2em;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            text-decoration: none;
+        }
+        .youtube-button:hover {
+            background-color: #CC0000;
+        }
+        .youtube-button i {
+            font-size: 1.5em;
         }
 
         /* Sidebar styles */
@@ -152,6 +168,7 @@
             font-size: 1.5em;
         }
 
+        /* Responsive design */
         @media (max-width: 768px) {
             .top-nav {
                 display: none;
@@ -191,12 +208,13 @@
             <a href="Ebooks.html">E-books</a>
             <a href="Aboutus.html">About Us</a>
             <a href="Calculator.html">Fitness Calculator</a>
+            <a href="TrainingProgram.html">Training Program</a>
         </nav>
     </div>
 </header>
 
 <main>
-    <div class="catchphrase">About us</div>
+    <div class="catchphrase">About Us</div>
     <div class="about-content">
         <h2>About Us</h2>
         <p>Welcome to "Fedot," your go-to destination for achieving your dream body and maintaining a healthy, stable mental and physical health. "Fedot" was created with the purpose of helping people all over the world to reach their fitness goals.</p>
@@ -212,11 +230,10 @@
     </div>
 </main>
 
-<!-- Sidebar -->
 <div class="sidebar" id="sidebar">
     <h2>Menu</h2>
     <ul>
-        <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="Ebooks.html"><i class="fas fa-book"></i> E-books</a></li>
         <li><a href="Aboutus.html"><i class="fas fa-user"></i> About Us</a></li>
         <li><a href="Calculator.html"><i class="fas fa-calculator"></i> Fitness Calculator</a></li>
@@ -225,6 +242,10 @@
         <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
 </div>
+
+<a href="https://www.youtube.com" class="youtube-button" target="_blank">
+    <i class="fab fa-youtube"></i>
+</a>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 <script>
