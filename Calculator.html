@@ -3,41 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitness Calculators</title>
+    <title>Fitness Calculator - Fedot</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            background-color: #000; /* Set black background color for the body */
-            color: #fff; /* Set text color to white */
+            background-color: #000;
+            color: #fff;
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 0;
+            margin-top: 80px;
+            min-height: 120vh;
+            position: relative;
+            overflow-x: hidden;
         }
         header {
-            background-color: black; /* Set black background color for the header */
-            color: white; /* White text color for the header */
+            background-color: black;
+            color: white;
             padding: 10px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            width: 100%; /* Ensure header spans the entire width */
-            justify-content: space-between; /* Space between logo and menu button */
+            width: 100%;
         }
         .logo {
-            width: 100px; /* Adjusted the logo size */
-            margin-right: 20px; /* Added margin between logo and navigation */
+            width: 100px;
+            margin-right: 20px;
         }
         .top-nav {
             display: flex;
             align-items: center;
-            margin-left: 20px; /* Space between the left edge and the navigation links */
+            width: calc(100% - 130px);
+            justify-content: flex-start;
         }
         .top-nav nav {
-            display: flex;
+            margin-left: 20px;
         }
         .top-nav a {
             color: white;
@@ -45,107 +54,141 @@
             margin-right: 20px;
             font-size: 1.2em;
         }
+        .menu-button {
+            display: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #fff;
+            padding: 10px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1002;
+        }
+        .menu-button i {
+            font-size: 1.2em;
+        }
         main {
-            background-color: #fff; /* White background for main content */
+            background-color: #fff;
             padding: 50px;
-            padding-top: 150px; /* Ensure content is below the fixed header */
-            margin: 0; /* Remove margin to avoid columns */
-            min-height: 100vh; /* Set minimum height to viewport height */
-            color: #000; /* Set text color to black */
-            box-sizing: border-box; /* Ensure padding is included in width */
+            padding-top: 250px;
+            padding-bottom: 100px;
+            min-height: calc(100vh - 150px);
+            position: relative;
+            color: #000;
         }
         h1 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #7851A9;
         }
         .calculator {
-            max-width: 500px;
+            background-color: #7851A9;
+            padding: 30px;
+            border-radius: 10px;
+            color: #fff;
+            display: inline-block;
+            max-width: 600px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
         }
         .calculator input {
-            width: calc(100% - 20px);
             padding: 10px;
             margin: 10px 0;
-            font-size: 1em;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
         }
         .calculator button {
             padding: 10px 20px;
-            font-size: 1em;
-            background-color: #000;
-            color: #fff;
             border: none;
             border-radius: 5px;
+            background-color: #FF0000;
+            color: #fff;
+            font-size: 1.2em;
             cursor: pointer;
-            margin-top: 10px; /* Added margin top */
         }
         .calculator button:hover {
-            background-color: #333;
+            background-color: #CC0000;
         }
-        .results {
+        .result {
             margin-top: 20px;
-        }
-        .calculator-switch {
-            margin-top: 20px;
-            font-size: 1em;
-        }
-        .calculator-switch button {
-            padding: 10px 20px;
-            font-size: 1em;
-            background-color: #000;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 5px;
-        }
-        .calculator-switch button:hover {
-            background-color: #333;
+            font-size: 1.5em;
         }
 
-        /* Menu button styles */
-        .menu-button {
-            display: none; /* Hide menu button by default */
-            font-size: 1.5em; /* Smaller font size */
-            cursor: pointer;
-            background: #000; /* Black background color */
-            border: 1px solid #fff; /* White border */
-            color: #fff; /* White color for the icon */
-            padding: 10px; /* Smaller padding */
-            border-radius: 5px; /* Rounded corners */
-            position: absolute; /* Absolute positioning for proper placement */
-            z-index: 1002; /* Ensure it's above other content */
+        /* Sidebar styles */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #333;
+            color: #fff;
+            transition: left 0.3s ease;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
         }
-        .menu-button i {
-            font-size: 1.2em; /* Smaller icon size */
+        .sidebar.open {
+            left: 0;
+        }
+        .sidebar h2 {
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 15px;
+        }
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sidebar ul li a i {
+            margin-right: 10px;
+        }
+        .sidebar .social_media {
+            margin-top: 20px;
+        }
+        .sidebar .social_media a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 10px;
+            font-size: 1.5em;
         }
 
         /* Responsive design */
         @media (max-width: 768px) {
             .top-nav {
-                display: none; /* Hide top navigation links on mobile */
+                display: none;
             }
             .menu-button {
-                display: block; /* Show menu button on mobile */
-                top: 10px;
-                left: 10px; /* Position in the top-left corner */
+                display: block;
+            }
+            .sidebar {
+                width: 100%;
+                left: -100%;
+            }
+            .sidebar.open {
+                left: 0;
             }
         }
 
-        /* Extra check for very small screens */
         @media (max-width: 390px) {
             .menu-button {
-                font-size: 1.2em; /* Ensure button is not too large */
-                padding: 8px; /* Adjust padding for very small screens */
+                font-size: 1.2em;
+                padding: 8px;
             }
             .menu-button i {
-                font-size: 1em; /* Smaller icon size for very small screens */
+                font-size: 1em;
             }
         }
     </style>
@@ -162,104 +205,55 @@
             <a href="Ebooks.html">E-books</a>
             <a href="Aboutus.html">About Us</a>
             <a href="Calculator.html">Fitness Calculator</a>
-            <a href="TrainingProgram.html">Training program</a>
-
+            <a href="TrainingProgram.html">Training Program</a>
         </nav>
     </div>
 </header>
 
 <main>
-    <h1>Fitness Calculators</h1>
-    <p>Please note: The results provided by these calculators are estimates and may not be exact.</p>
-
-    <div class="calculator-switch">
-        <button onclick="showCalculator('calorie-calculator')">Calorie Calculator</button>
-        <button onclick="showCalculator('max-lift-calculator')">Max Lift Calculator</button>
-    </div>
-
-    <div id="calorie-calculator" class="calculator" style="display: block;">
-        <p>Enter your weight:</p>
-        <input type="number" id="weight" placeholder="Weight" required>
-        <div style="margin-top: 10px;">
-            <label><input type="radio" name="unit" value="kilograms" checked> Kilograms</label>
-            <label><input type="radio" name="unit" value="pounds"> Pounds</label>
-        </div>
-        <button onclick="calculateCalories()">Calculate</button>
-        <div class="results">
-            <p id="maintenance"></p>
-            <p id="bulk"></p>
-            <p id="cut"></p>
-            <p id="aggressive-cut"></p>
-        </div>
-    </div>
-
-    <div id="max-lift-calculator" class="calculator" style="display: none;">
-        <p>Enter the weight you lifted:</p>
-        <input type="number" id="lift-weight" placeholder="Weight lifted" required>
-        <div style="margin-top: 10px;">
-            <label><input type="radio" name="lift-unit" value="kg"> Kilograms</label>
-            <label><input type="radio" name="lift-unit" value="lbs" checked> Pounds</label>
-        </div>
-        <p>Enter the number of reps:</p>
-        <input type="number" id="reps" placeholder="Reps" required>
-        <button onclick="calculateMaxLift()">Calculate</button>
-        <div class="results">
-            <p id="max-lift"></p>
-        </div>
+    <h1>Fitness Calculator</h1>
+    <div class="calculator">
+        <input type="number" id="weight" placeholder="Enter weight (kg)">
+        <input type="number" id="height" placeholder="Enter height (cm)">
+        <button onclick="calculateBMI()">Calculate BMI</button>
+        <div class="result" id="result"></div>
     </div>
 </main>
 
-<!-- Font Awesome script for icons -->
+<div class="sidebar" id="sidebar">
+    <h2>Menu</h2>
+    <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="Ebooks.html"><i class="fas fa-book"></i> E-books</a></li>
+        <li><a href="Aboutus.html"><i class="fas fa-user"></i> About Us</a></li>
+        <li><a href="Calculator.html"><i class="fas fa-calculator"></i> Fitness Calculator</a></li>
+    </ul>
+    <div class="social_media">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 
 <script>
     function toggleSidebar() {
-        // Sidebar is removed, so this function is no longer needed.
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('open');
     }
 
-    function calculateCalories() {
-        let weight = parseFloat(document.getElementById('weight').value);
-        let unit = document.querySelector('input[name="unit"]:checked').value;
-        
-        if (unit === 'pounds') {
-            weight = weight / 2.2046226218; // Convert pounds to kilograms
+    function calculateBMI() {
+        const weight = parseFloat(document.getElementById('weight').value);
+        const height = parseFloat(document.getElementById('height').value) / 100;
+
+        if (isNaN(weight) || isNaN(height) || height === 0) {
+            document.getElementById('result').textContent = 'Please enter valid values.';
+            return;
         }
 
-        const maintenanceCalories = Math.round(weight * 33);
-        const bulkCalories = Math.round(maintenanceCalories + 350);
-        const cutCalories = Math.round(maintenanceCalories - 500);
-        const aggressiveCutCalories = Math.round(cutCalories - 500);
-
-        document.getElementById('maintenance').innerText = `Maintenance calorie intake: ${maintenanceCalories.toFixed(0)} kcal`;
-        document.getElementById('bulk').innerText = `Suggested bulk calorie intake: ${bulkCalories.toFixed(0)} kcal`;
-        document.getElementById('cut').innerText = `Suggested cut calorie intake: ${cutCalories.toFixed(0)} kcal`;
-        document.getElementById('aggressive-cut').innerText = `Suggested aggressive cut calorie intake: ${aggressiveCutCalories.toFixed(0)} kcal (Note: This calorie intake isn't healthy and might result in muscle loss)`;
-    }
-
-    function calculateMaxLift() {
-        let weight = parseFloat(document.getElementById('lift-weight').value);
-        let unit = document.querySelector('input[name="lift-unit"]:checked').value;
-        let reps = parseInt(document.getElementById('reps').value);
-
-        if (unit === 'kg') {
-            weight = weight * 2.2046226218; // Convert kg to pounds
-        }
-
-        // Using Epley formula
-        const maxLiftLbs = Math.round(weight * (1 + reps / 30));
-        const maxLiftKg = (maxLiftLbs / 2.2046226218).toFixed(2);
-
-        document.getElementById('max-lift').innerText = "Calculating...";
-        setTimeout(function() {
-            document.getElementById('max-lift').innerText = `Estimated 1 Rep Max: ${maxLiftLbs.toFixed(0)} lbs or ${maxLiftKg} kg`;
-        }, 2000);
-    }
-
-    function showCalculator(calculator) {
-        document.getElementById('calorie-calculator').style.display = 'none';
-        document.getElementById('max-lift-calculator').style.display = 'none';
-        document.getElementById(calculator).style.display = 'block';
+        const bmi = weight / (height * height);
+        document.getElementById('result').textContent = `Your BMI is ${bmi.toFixed(2)}`;
     }
 </script>
+
 </body>
 </html>
