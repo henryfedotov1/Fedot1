@@ -88,41 +88,47 @@
         p {
             font-size: 1.2em;
             margin-bottom: 40px;
-            white-space: pre-wrap;
             color: #7851A9;
         }
-        .tip-popup {
-            background-color: rgba(255, 255, 255, 0.1);
+        .cta-button {
+            background-color: #7851A9;
             color: #fff;
-            border: 1px solid #7851A9;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            display: inline-block;
-            position: relative;
-            text-align: left;
-            width: 80%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .tip-popup::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: -20px;
-            border-width: 10px;
-            border-style: solid;
-            border-color: transparent rgba(255, 255, 255, 0.1) transparent transparent;
-        }
-        .tip-popup h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-            color: #7851A9;
-        }
-        .tip-popup p {
+            border: none;
+            border-radius: 5px;
+            padding: 15px 30px;
             font-size: 1.2em;
-            color: #7851A9;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 30px;
         }
-        /* Sidebar styles */
+        .cta-button:hover {
+            background-color: #6a4596;
+        }
+        .price-list {
+            margin-bottom: 40px;
+        }
+        .price-list a {
+            color: #7851A9;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        .price-list a:hover {
+            text-decoration: underline;
+        }
+        .form-links {
+            margin-top: 30px;
+        }
+        .form-links a {
+            color: #7851A9;
+            text-decoration: none;
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 15px;
+        }
+        .form-links a:hover {
+            text-decoration: underline;
+        }
         .sidebar {
             height: 100%;
             width: 250px;
@@ -217,7 +223,14 @@
 
 <main>
     <div class="catchphrase">Achieve Your Peak Performance with Intense Fitness Training!</div>
-    <!-- Your content here -->
+    <p>Welcome to my training program page. As a dedicated personal trainer, I offer a variety of services tailored to your fitness goals. Check out my services and price list below.</p>
+    <div class="price-list">
+        <a href="link-to-price-list.pdf" target="_blank">View My Price List</a>
+    </div>
+    <div class="form-links">
+        <a href="https://forms.gle/example-training" target="_blank">Training Inquiry Form</a>
+        <a href="https://forms.gle/example-nutrition" target="_blank">Nutrition Inquiry Form</a>
+    </div>
 </main>
 
 <div class="sidebar" id="sidebar">
