@@ -16,7 +16,7 @@
             color: #fff;
             font-family: Arial, sans-serif;
             text-align: center;
-            margin-top: 80px;
+            margin: 0; /* Changed from 80px to 0 */
             min-height: 120vh;
             position: relative;
             overflow-x: hidden;
@@ -73,7 +73,7 @@
         main {
             background-color: #fff;
             padding: 50px;
-            padding-top: 250px;
+            padding-top: 80px; /* Adjusted padding-top to match header height */
             padding-bottom: 100px;
             min-height: calc(100vh - 150px);
             position: relative;
@@ -280,13 +280,11 @@
 </a>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
-
 <script>
     function toggleSidebar() {
         const sidebar = document.getElementById('sidebar');
         sidebar.classList.toggle('open');
     }
 </script>
-
 </body>
 </html>
