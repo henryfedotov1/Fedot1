@@ -12,7 +12,7 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
-            padding-top: 80px; /* Adjusted padding-top to match header height */
+            padding-top: 70px; /* Adjust to match header height */
         }
         header {
             background-color: black;
@@ -27,6 +27,7 @@
             z-index: 1000;
             width: 100%;
             justify-content: space-between;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Optional: Adds shadow to distinguish header */
         }
         .logo {
             width: 100px;
@@ -35,7 +36,7 @@
         .top-nav {
             display: flex;
             align-items: center;
-            margin-left: 20px;
+            margin-left: auto;
         }
         .top-nav nav {
             display: flex;
@@ -49,7 +50,7 @@
         main {
             background-color: #fff;
             padding: 50px;
-            min-height: calc(100vh - 150px); /* Adjusted to account for header height */
+            min-height: calc(100vh - 130px); /* Adjust to account for header height */
             color: #000;
             box-sizing: border-box;
         }
@@ -148,8 +149,8 @@
     <button class="menu-button" onclick="toggleSidebar()">
         <i class="fas fa-bars"></i>
     </button>
+    <img src="Screenshot 2024-07-16 220902.png" alt="Fedot Logo" class="logo">
     <div class="top-nav">
-        <img src="Screenshot 2024-07-16 220902.png" alt="Fedot Logo" class="logo">
         <nav>
             <a href="index.html">Home</a>
             <a href="Ebooks.html">E-books</a>
