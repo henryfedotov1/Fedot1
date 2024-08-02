@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-books</title>
+    <title>E-books - Fedot</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Reset default margin and padding for all elements */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         body {
-            background-color: #000; /* Set black background color for the body */
-            color: #fff; /* Set text color to white */
+            background-color: #000;
+            color: #fff;
             font-family: Arial, sans-serif;
             text-align: center;
+            margin-top: 80px;
+            min-height: 120vh;
+            position: relative;
+            overflow-x: hidden;
         }
         header {
-            background-color: black; /* Set black background color for the header */
-            color: white; /* White text color for the header */
+            background-color: black;
+            color: white;
             padding: 10px;
             display: flex;
             justify-content: space-between;
@@ -30,17 +33,20 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            width: 100%; /* Ensure header spans the entire width */
+            width: 100%;
         }
         .logo {
-            width: 100px; /* Adjusted the logo size */
-            margin-right: 20px; /* Added margin between logo and navigation */
+            width: 100px;
+            margin-right: 20px;
         }
         .top-nav {
             display: flex;
-            align-items: center; /* Align items vertically center */
-            width: calc(100% - 130px); /* Adjusted width to account for logo and menu button */
-            justify-content: flex-start; /* Align items to the start of the container */
+            align-items: center;
+            width: calc(100% - 130px);
+            justify-content: flex-start;
+        }
+        .top-nav nav {
+            margin-left: 20px;
         }
         .top-nav a {
             color: white;
@@ -48,32 +54,46 @@
             margin-right: 20px;
             font-size: 1.2em;
         }
-        main {
-            background-color: #fff; /* White background for main content */
-            padding: 50px;
-            padding-top: 180px; /* Ensure content is below the fixed header */
-            margin-top: 80px; /* Provide space for the fixed header */
-            min-height: 100vh; /* Set minimum height to viewport height */
-            color: #000; /* Text color inside main */
+        .menu-button {
+            display: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #fff;
+            padding: 10px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1002;
         }
-        h1 {
-            color: #7851A9; /* Royal purple color for heading */
-            margin-bottom: 40px; /* Add more space below the title */
+        .menu-button i {
+            font-size: 1.2em;
+        }
+        main {
+            background-color: #fff;
+            padding: 50px;
+            padding-top: 250px;
+            padding-bottom: 100px;
+            min-height: calc(100vh - 150px);
+            position: relative;
+            color: #000;
         }
         .ebook-list {
-            list-style-type: none; /* Remove default list styling */
+            list-style: none;
             padding: 0;
+            color: #7851A9;
         }
         .ebook-list li {
-            margin: 20px 0; /* Space between list items */
-            font-size: 1.2em; /* Increase font size */
+            margin-bottom: 20px;
+            font-size: 1.2em;
         }
         .ebook-list a {
-            color: #7851A9; /* Purple color for book links */
-            text-decoration: none; /* Remove underline from links */
+            color: #7851A9;
+            text-decoration: none;
         }
         .ebook-list a:hover {
-            text-decoration: underline; /* Underline on hover */
+            text-decoration: underline;
         }
 
         /* Sidebar styles */
@@ -82,7 +102,7 @@
             width: 250px;
             position: fixed;
             top: 0;
-            left: -250px; /* Hide sidebar by default */
+            left: -250px;
             background-color: #333;
             color: #fff;
             transition: left 0.3s ease;
@@ -91,7 +111,7 @@
             padding: 20px;
         }
         .sidebar.open {
-            left: 0; /* Show sidebar when open */
+            left: 0;
         }
         .sidebar h2 {
             margin-bottom: 20px;
@@ -109,9 +129,10 @@
             font-size: 1.2em;
             display: flex;
             align-items: center;
+            gap: 10px;
         }
         .sidebar ul li a i {
-            margin-right: 20px; /* Increased space between icon and text */
+            margin-right: 10px;
         }
         .sidebar .social_media {
             margin-top: 20px;
@@ -123,49 +144,30 @@
             font-size: 1.5em;
         }
 
-        /* Menu button styles */
-        .menu-button {
-            display: none; /* Hide menu button by default */
-            font-size: 1.5em; /* Smaller font size */
-            cursor: pointer;
-            background: none; /* Remove background color */
-            border: none;
-            color: #fff; /* White color for the icon */
-            padding: 10px; /* Smaller padding */
-            position: absolute; /* Absolute positioning for proper placement */
-            top: 10px;
-            left: 10px; /* Position in the top-left corner */
-            z-index: 1002; /* Ensure it's above other content */
-        }
-        .menu-button i {
-            font-size: 1.2em; /* Smaller icon size */
-        }
-
         /* Responsive design */
         @media (max-width: 768px) {
             .top-nav {
-                display: none; /* Hide top navigation links on mobile */
+                display: none;
             }
             .menu-button {
-                display: block; /* Show menu button on mobile */
+                display: block;
             }
             .sidebar {
-                width: 100%; /* Full width sidebar on mobile */
-                left: -100%; /* Start off-screen */
+                width: 100%;
+                left: -100%;
             }
             .sidebar.open {
-                left: 0; /* Slide in the sidebar */
+                left: 0;
             }
         }
 
-        /* Extra check for very small screens */
         @media (max-width: 390px) {
             .menu-button {
-                font-size: 1.2em; /* Ensure button is not too large */
-                padding: 8px; /* Adjust padding for very small screens */
+                font-size: 1.2em;
+                padding: 8px;
             }
             .menu-button i {
-                font-size: 1em; /* Smaller icon size for very small screens */
+                font-size: 1em;
             }
         }
     </style>
@@ -182,21 +184,21 @@
             <a href="Ebooks.html">E-books</a>
             <a href="Aboutus.html">About Us</a>
             <a href="Calculator.html">Fitness Calculator</a>
-            <a href="TrainingProgram.html">Training program</a>
+            <a href="TrainingProgram.html">Training Program</a>
         </nav>
     </div>
 </header>
 
 <main>
-    <h1>E-books</h1>
+    <h1>E-books Collection</h1>
     <ul class="ebook-list">
-        <li><a href="Book.html">High Protein, Low Calorie: Delicious Recipes for Every Meal</a></li>
-        <li><a href="Book2.html">Tasty and Healthy Recipes for Daily Life</a></li>
-        <li><a href="Book3.html">The Lean Kitchen: Low-Calorie Recipes for a Balanced Diet</a></li>
+        <li><a href="#">E-book 1: Title</a></li>
+        <li><a href="#">E-book 2: Title</a></li>
+        <li><a href="#">E-book 3: Title</a></li>
+        <li><a href="#">E-book 4: Title</a></li>
     </ul>
 </main>
 
-<!-- Sidebar -->
 <div class="sidebar" id="sidebar">
     <h2>Menu</h2>
     <ul>
@@ -207,11 +209,9 @@
     </ul>
     <div class="social_media">
         <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a> <!-- Added YouTube link -->
     </div>
 </div>
 
-<!-- Font Awesome script for icons -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 
 <script>
@@ -220,5 +220,6 @@
         sidebar.classList.toggle('open');
     }
 </script>
+
 </body>
 </html>
