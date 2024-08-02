@@ -42,11 +42,6 @@
             width: calc(100% - 130px); /* Adjusted width to account for logo and menu button */
             justify-content: flex-start; /* Align items to the start of the container */
         }
-        .top-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
         .top-nav a {
             color: white;
             text-decoration: none;
@@ -173,24 +168,6 @@
             font-size: 1.5em;
         }
 
-        /* Menu button styles */
-        .menu-button {
-            display: none; /* Hide menu button by default */
-            font-size: 1.5em; /* Smaller font size */
-            cursor: pointer;
-            background: none; /* Remove background color */
-            border: none;
-            color: #fff; /* White color for the icon */
-            padding: 10px; /* Smaller padding */
-            position: absolute; /* Absolute positioning for proper placement */
-            top: 10px;
-            left: 10px; /* Position in the top-left corner */
-            z-index: 1002; /* Ensure it's above other content */
-        }
-        .menu-button i {
-            font-size: 1.2em; /* Smaller icon size */
-        }
-
         /* Responsive design */
         @media (max-width: 768px) {
             .top-nav {
@@ -233,13 +210,12 @@
             <a href="Aboutus.html">About Us</a>
             <a href="Calculator.html">Fitness Calculator</a>
             <a href="TrainingProgram.html">Training program</a>
-
         </nav>
     </div>
 </header>
 
 <main>
-    <div class="catchphrase">About us</div>
+    <div class="catchphrase">About Us</div>
     <div class="about-content">
         <h2>About Us</h2>
         <p>Welcome to "Fedot," your go-to destination for achieving your dream body and maintaining a healthy, stable mental and physical health. "Fedot" was created with the purpose of helping people all over the world to reach their fitness goals.</p>
@@ -248,31 +224,24 @@
         <p>At "Fedot," we believe that everyone deserves to feel confident and healthy in their own body. Our purpose is to help you achieve your dream body through training programs, comprehensive e-books, and a wealth of resources designed to support you on your fitness journey. We are committed to helping you reach your goals in a healthy and sustainable way, ensuring that you not only look great but also feel amazing.</p>
         
         <h3>Thank You</h3>
-        <p>Thank you for choosing "Fedot." We are honored to be a part of your fitness journey and are committed to providing you with the best possible experience. We are confident that our programs and resources will help you achieve your fitness goals and improve your overall well-being.</p>
-        
-        <p>If you have any questions or need further assistance, please don't hesitate to contact us. We are here to support you every step of the way.</p>
-        <p>Contact us at: <a href="mailto:fedot.sup@gmail.com">fedot.sup@gmail.com</a></p>
+        <p>Thank you for choosing "Fedot." We are honored to be a part of your fitness journey and are committed to providing you with the best resources and support possible. Together, we can achieve greatness!</p>
     </div>
 </main>
 
 <!-- Sidebar -->
-<div class="sidebar" id="sidebar">
+<aside class="sidebar" id="sidebar">
     <h2>Menu</h2>
     <ul>
-        <li><a href="index.html"><i class="fas fa-home"></i >Home</a></li>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="Ebooks.html"><i class="fas fa-book"></i> E-books</a></li>
         <li><a href="Aboutus.html"><i class="fas fa-user"></i> About Us</a></li>
         <li><a href="Calculator.html"><i class="fas fa-calculator"></i> Fitness Calculator</a></li>
+        <li><a href="TrainingProgram.html"><i class="fas fa-dumbbell"></i> Training Program</a></li>
     </ul>
     <div class="social_media">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/channel/UCk2IBWXsZnmCRihhz8bIgFA" target="_blank" class="youtube-button"><i class="fab fa-youtube"></i></a>
     </div>
-</div>
-
-<!-- Font Awesome script for icons -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</aside>
 
 <script>
     function toggleSidebar() {
