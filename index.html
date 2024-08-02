@@ -23,35 +23,38 @@
             overflow-x: hidden; /* Prevent horizontal scroll */
         }
         header {
-    background-color: black;
-    color: white;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    width: 100%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Optional: Add shadow for better separation */
-}
+            background-color: black; /* Set black background color for the header */
+            color: white; /* White text color for the header */
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            width: 100%; /* Ensure header spans the entire width */
+        }
         .logo {
-    width: 100px; /* Adjust as needed */
-    margin-right: 20px; /* Space between logo and nav items */
-}
+            width: 100px; /* Adjusted the logo size */
+            margin-right: 20px; /* Added margin between logo and navigation */
+        }
         .top-nav {
-    display: flex;
-    align-items: center; /* Center items vertically */
-    gap: 20px; /* Consistent spacing between items */
+            display: flex;
+            align-items: center; /* Align items vertically center */
+            width: calc(100% - 130px); /* Adjusted width to account for logo and menu button */
+            justify-content: flex-start; /* Align items to the start of the container */
+        }
+        .top-nav nav {
+            margin-left: 20px; /* Adjust spacing between logo and navigation links */
         }
         .top-nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2em;
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 1.2em;
         }
-
         .menu-button {
             display: none; /* Hide menu button by default */
             font-size: 1.5em; /* Smaller font size */
