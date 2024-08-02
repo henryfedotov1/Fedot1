@@ -19,6 +19,7 @@
             color: white;
             padding: 10px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
             position: fixed;
             top: 0;
@@ -26,7 +27,6 @@
             right: 0;
             z-index: 1000;
             width: 100%;
-            justify-content: space-between;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Optional: Adds shadow to distinguish header */
         }
         .logo {
@@ -45,6 +45,22 @@
             color: white;
             text-decoration: none;
             margin-right: 20px;
+            font-size: 1.2em;
+        }
+        .menu-button {
+            display: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #fff;
+            padding: 10px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1002;
+        }
+        .menu-button i {
             font-size: 1.2em;
         }
         main {
@@ -108,23 +124,7 @@
         .calculator-switch button:hover {
             background-color: #333;
         }
-        .menu-button {
-            display: none;
-            font-size: 1.5em;
-            cursor: pointer;
-            background: #000;
-            border: 1px solid #fff;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 1002;
-        }
-        .menu-button i {
-            font-size: 1.2em;
-        }
+        /* Responsive design */
         @media (max-width: 768px) {
             .top-nav {
                 display: none;
@@ -198,9 +198,7 @@
     </div>
 </main>
 
-<!-- Font Awesome script for icons -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
-
 <script>
     function toggleSidebar() {
         // Sidebar is removed, so this function is no longer needed.
@@ -235,10 +233,9 @@
         document.getElementById('max-lift').innerText = `Estimated 1 Rep Max: ${maxLiftLbs.toFixed(0)} lbs or ${maxLiftKg} kg`;
     }
 
-    function showCalculator(calculator) {
-        document.getElementById('calorie-calculator').style.display = 'none';
-        document.getElementById('max-lift-calculator').style.display = 'none';
-        document.getElementById(calculator).style.display = 'block';
+    function showCalculator(calculatorId) {
+        document.getElementById('calorie-calculator').style.display = calculatorId === 'calorie-calculator' ? 'block' : 'none';
+        document.getElementById('max-lift-calculator').style.display = calculatorId === 'max-lift-calculator' ? 'block' : 'none';
     }
 </script>
 </body>
