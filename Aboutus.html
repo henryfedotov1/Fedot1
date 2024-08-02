@@ -12,19 +12,18 @@
             box-sizing: border-box;
         }
         body {
-            background-color: #fff; /* Changed background color */
-            color: #000; /* Changed text color */
-            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Light background for the body */
+            color: #333; /* Dark text color for readability */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
-            margin: 0; /* Changed from 80px to 0 */
-            min-height: 120vh;
-            position: relative;
+            margin: 0;
+            min-height: 100vh;
             overflow-x: hidden;
         }
         header {
-            background-color: black;
+            background-color: #000;
             color: white;
-            padding: 10px;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -36,23 +35,28 @@
             width: 100%;
         }
         .logo {
-            width: 100px;
+            width: 120px;
             margin-right: 20px;
         }
         .top-nav {
             display: flex;
             align-items: center;
-            width: calc(100% - 130px);
+            flex-grow: 1;
             justify-content: flex-start;
         }
         .top-nav nav {
-            margin-left: 20px;
+            display: flex;
+            gap: 20px;
         }
         .top-nav a {
             color: white;
             text-decoration: none;
-            margin-right: 20px;
-            font-size: 1.2em;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .top-nav a:hover {
+            color: #7851A9; /* Change color on hover */
         }
         .menu-button {
             display: none;
@@ -71,23 +75,22 @@
             font-size: 1.2em;
         }
         main {
-            background-color: #fff; /* Changed background color */
-            padding: 50px;
-            padding-top: 80px; /* Adjusted padding-top to match header height */
-            padding-bottom: 100px;
-            min-height: calc(100vh - 150px);
-            position: relative;
-            color: #000; /* Changed text color */
+            padding: 100px 20px 50px;
+            background-color: #fff;
+            color: #333;
         }
         h1 {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             color: #7851A9;
+            font-size: 2.5em;
+            font-weight: bold;
         }
         p {
             font-size: 1.2em;
-            margin-bottom: 40px;
-            white-space: pre-wrap;
-            color: #7851A9;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 800px;
+            color: #555;
         }
         .sidebar {
             height: 100%;
@@ -107,6 +110,7 @@
         }
         .sidebar h2 {
             margin-bottom: 20px;
+            color: #7851A9;
         }
         .sidebar ul {
             list-style: none;
@@ -122,9 +126,10 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            transition: color 0.3s;
         }
-        .sidebar ul li a i {
-            margin-right: 10px;
+        .sidebar ul li a:hover {
+            color: #7851A9; /* Change color on hover */
         }
         .sidebar .social_media {
             margin-top: 20px;
