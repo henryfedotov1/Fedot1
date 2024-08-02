@@ -38,8 +38,9 @@
         }
         .top-nav {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            align-items: center; /* Align items vertically center */
+            width: calc(100% - 130px); /* Adjusted width to account for logo and menu button */
+            justify-content: flex-start; /* Align items to the start of the container */
         }
         .top-nav a {
             color: white;
@@ -182,7 +183,6 @@
             <a href="Aboutus.html">About Us</a>
             <a href="Calculator.html">Fitness Calculator</a>
             <a href="TrainingProgram.html">Training program</a>
-
         </nav>
     </div>
 </header>
@@ -207,6 +207,7 @@
     </ul>
     <div class="social_media">
         <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a> <!-- Added YouTube link -->
     </div>
 </div>
 
