@@ -53,17 +53,34 @@
             margin-right: 20px;
             font-size: 1.2em;
         }
+        .menu-button {
+            display: none; /* Hide menu button by default */
+            font-size: 1.5em; /* Smaller font size */
+            cursor: pointer;
+            background: none; /* Remove background color */
+            border: none;
+            color: #fff; /* White color for the icon */
+            padding: 10px; /* Smaller padding */
+            position: absolute; /* Absolute positioning for proper placement */
+            top: 10px;
+            left: 10px; /* Position in the top-left corner */
+            z-index: 1002; /* Ensure it's above other content */
+        }
+        .menu-button i {
+            font-size: 1.2em; /* Smaller icon size */
+        }
         main {
             background-color: #fff; /* White background for main content */
             padding: 50px;
-            padding-top: 180px; /* Ensure content is below the fixed header */
-            margin-top: 80px; /* Provide space for the fixed header */
-            min-height: 100vh; /* Set minimum height to viewport height */
+            padding-top: 250px; /* Increased space from the fixed header */
+            padding-bottom: 100px; /* Extra padding for spacing and longer page */
+            min-height: calc(100vh - 150px); /* Adjust height to fit the footer */
+            position: relative; /* Set minimum height to viewport height */
         }
         .catchphrase {
-            font-size: 1.5em;
+            font-size: 2em;
             font-weight: bold;
-            margin-bottom: 20px;
+            margin-bottom: 60px;
             color: #7851A9; /* Royal purple color for catchphrase */
         }
         p {
@@ -71,6 +88,28 @@
             margin-bottom: 40px;
             white-space: pre-wrap; /* This allows text to wrap to the next line */
             color: #7851A9; /* Royal purple color for paragraph text */
+        }
+        .youtube-button {
+            background-color: #FF0000; /* YouTube red */
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            padding: 20px; /* Adjusted padding to size of the button */
+            font-size: 2em; /* Size of the icon */
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed; /* Fixed position at the bottom right */
+            bottom: 20px; /* Distance from the bottom of the viewport */
+            right: 20px; /* Distance from the right edge of the viewport */
+            text-decoration: none;
+        }
+        .youtube-button:hover {
+            background-color: #CC0000; /* Darker red on hover */
+        }
+        .youtube-button i {
+            font-size: 1.5em; /* Adjust icon size */
         }
         .about-content {
             color: #000; /* Black text color for about us content */
@@ -119,9 +158,10 @@
             font-size: 1.2em;
             display: flex;
             align-items: center;
+            gap: 10px; /* Space between icon and text */
         }
         .sidebar ul li a i {
-            margin-right: 20px; /* Space between icon and text */
+            margin-right: 10px; /* Space between icon and text */
         }
         .sidebar .social_media {
             margin-top: 20px;
