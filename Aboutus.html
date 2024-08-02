@@ -41,8 +41,11 @@
         .top-nav {
             display: flex;
             align-items: center;
-            justify-content: flex-end;
-            width: calc(100% - 120px); /* Adjusted width to fit the logo */
+            width: calc(100% - 130px);
+            justify-content: flex-start; /* Adjusted width to fit the logo */
+        }
+        .top-nav nav {
+            margin-left: 20px;
         }
         .top-nav a {
             color: white;
@@ -69,11 +72,11 @@
         main {
             background-color: #fff;
             padding: 50px;
-            padding-top: 80px;
+            padding-top: 80px; /* Adjusted padding-top to match header height */
             padding-bottom: 100px;
             min-height: calc(100vh - 150px);
+            position: relative;
             color: #000;
-            text-align: left;
         }
         .catchphrase {
             font-size: 2em;
