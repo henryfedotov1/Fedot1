@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Selector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #7851A9; /* Royal Purple */
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 1.2em;
+            border: 2px solid #7851A9; /* Royal Purple */
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+            outline: none;
+            cursor: pointer;
+        }
+
+        select:focus {
+            border-color: #6a4596; /* Darker Royal Purple */
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Training Inquiry</h1>
+        <p>Please select your preferred language:</p>
+        <select id="language-select" onchange="changeLanguage()">
+            <option value="">--Select Language--</option>
+            <option value="en">English</option>
+            <option value="he">Hebrew</option>
+        </select>
+    </div>
+
+    <script>
+        function changeLanguage() {
+            var selectedLanguage = document.getElementById('language-select').value;
+            if (selectedLanguage === 'he') {
+                window.location.href = 'https://docs.google.com/forms/d/14OsCT9gGie0EBI9W9otUavscEpWK8ZMbEdVwUj-_cgo/edit';
+            } else if (selectedLanguage === 'en') {
+                window.location.href = 'https://docs.google.com/forms/d/your-english-form-id/edit'; // Replace with your English form URL
+            }
+        }
+    </script>
+</body>
+</html>
