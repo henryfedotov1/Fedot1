@@ -15,10 +15,10 @@
         body {
             background-color: #fff;
             color: #333;
-            font-family: Arial, sans-serif; /* Updated font-family */
+            font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
-            padding-top: 80px; /* Increased space from header */
+            padding-top: 80px;
             min-height: 120vh;
         }
         header {
@@ -100,6 +100,7 @@
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             max-width: 100%;
+            position: relative;
         }
         .ebook-item:hover {
             transform: translateY(-5px);
@@ -108,20 +109,32 @@
         .ebook-item img {
             width: 100%;
             height: auto;
-            max-height: 200px; /* Adjusted to fit within the container */
+            max-height: 200px;
             object-fit: contain;
             border-radius: 10px;
-            margin-bottom: 10px; /* Reduced space below the image */
+            margin-bottom: 10px;
         }
         .ebook-item h2 {
-            font-size: 1.3em; /* Slightly smaller font size */
+            font-size: 1.3em;
             color: #7851A9;
             margin-bottom: 5px;
         }
         .ebook-item p {
-            font-size: 0.9em; /* Slightly smaller font size */
+            font-size: 0.9em;
             color: #555;
             margin-bottom: 10px;
+            height: 4.5em; /* Adjust height for three lines */
+            overflow: hidden;
+            position: relative;
+            line-height: 1.5em; /* Adjust line height if needed */
+        }
+        .ebook-item p:after {
+            content: '...';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: #fff;
+            padding-left: 10px;
         }
         .ebook-item a {
             color: #7851A9;
@@ -232,12 +245,12 @@
     <div class="ebook-grid">
         <div class="ebook-item">
             <img src="image_2024-08-03_131312359.png" alt="E-book 1 Cover">
-            <h2><a href="Book"> High Protein, Low Cal </a></h2>
+            <h2><a href="Book">High Protein, Low Cal</a></h2>
             <p>Unlock the secrets to a healthier, fitter you with "High Protein, Low Calorie: Delicious and Nutritious Recipes for Every Meal." This comprehensive guide is designed for those who seek to maximize their protein intake while keeping calories and fats in check. Featuring a variety of carefully crafted recipes, this book offers mouthwatering meals that are both satisfying and beneficial for your fitness goals. From energizing breakfasts to fulfilling dinners and snacks, each recipe is curated to deliver high-quality protein with optimal nutrition. Say goodbye to high-fat ingredients and hello to deliciously clean, protein-packed meals that support your journey towards a healthier lifestyle. With detailed cooking instructions and macro information for each dish, this book is your ultimate companion for making smart, nutritious choices every day.</p>
         </div>
         <div class="ebook-item">
             <img src="Su2.png" alt="E-book 2 Cover">
-            <h2><a href="Book2">E-book 2</a></h2>
+            <h2><a href="Book2">Slimming Delights</a></h2>
             <p>Discover "Slimming Delights," your go-to guide for mouthwatering, low-calorie recipes that are packed with protein and nutrients. This book features a variety of satisfying dishes designed to help you manage your weight while enjoying every bite. From vibrant salads to hearty mains, each recipe is crafted to be both nutritious and delicious, making healthy eating simple and enjoyable. Perfect for anyone aiming for a balanced diet without compromising on taste.</p>
         </div>
         <div class="ebook-item">
