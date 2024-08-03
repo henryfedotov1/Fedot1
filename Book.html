@@ -4,334 +4,181 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>High Protein, Low Calorie: Delicious and Nutritious Recipes for Every Meal</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap">
     <style>
         body {
-            font-family: 'Playfair Display', serif;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
             margin: 0;
             padding: 0;
-            color: #333;
-            background-color: #f8f9fa;
+            background-color: #f4f4f4;
         }
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
             padding: 20px;
         }
-        header {
-            background-color: #7851A9;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        .section {
-            margin-bottom: 60px;
-        }
-        .section h2 {
+        h1, h2, h3 {
             color: #7851A9;
-            border-bottom: 2px solid #7851A9;
-            padding-bottom: 10px;
-            font-size: 2em;
-            margin-bottom: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
         }
         .recipe {
-            background-color: #fff;
+            background: #fff;
             border: 1px solid #ddd;
             border-radius: 10px;
             padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .recipe h3 {
-            color: #7851A9;
-            margin-top: 0;
-            font-size: 1.8em;
-        }
-        .recipe img {
-            width: 100%;
-            height: auto;
-            max-height: 300px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-        .recipe p {
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-        .recipe ul {
-            list-style: disc;
-            padding-left: 20px;
             margin-bottom: 20px;
         }
-        footer {
-            background-color: #7851A9;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            border-radius: 10px;
+        .recipe h2 {
+            margin-top: 0;
         }
-        footer p {
-            margin: 0;
-            font-size: 1em;
+        .recipe p {
+            margin: 10px 0;
+        }
+        .macros {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        .recipe .description {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>High Protein, Low Calorie: Delicious and Nutritious Recipes for Every Meal</h1>
-        </header>
-        
-        <div class="section">
-            <h2>Introduction</h2>
-            <p>Welcome to "High Protein, Low Calorie: Delicious and Nutritious Recipes for Every Meal." This book is designed to help you achieve your fitness and health goals with tasty, high-protein, and low-calorie meals. Enjoy a variety of recipes that are perfect for any time of the day, from breakfast to dinner. Each recipe is carefully crafted to be nutritious, filling, and easy to prepare. Let's get cooking!</p>
-        </div>
+        <h1>High Protein, Low Calorie: Delicious and Nutritious Recipes for Every Meal</h1>
 
-        <!-- Breakfast Recipes -->
-        <div class="section">
-            <h2>Breakfast Recipes</h2>
-            <!-- Recipe 1 -->
-            <div class="recipe">
-                <img src="Su1.png" alt="Recipe 1">
-                <h3>Protein-Packed Greek Yogurt Bowl</h3>
-                <p>This Greek yogurt bowl is perfect for a high-protein breakfast. It's rich in protein and low in calories, with a delicious mix of fresh fruits and a touch of honey.</p>
-                <ul>
-                    <li>1 cup Greek yogurt</li>
-                    <li>1/2 cup mixed berries</li>
-                    <li>1 tablespoon honey</li>
-                    <li>1 tablespoon chia seeds</li>
-                </ul>
-                <p><strong>Instructions:</strong> Mix the Greek yogurt with honey. Top with mixed berries and chia seeds. Serve immediately.</p>
+        <!-- Recipe 1 -->
+        <div class="recipe">
+            <h2>Grilled Chicken Breast with Steamed Vegetables</h2>
+            <div class="macros">
+                <strong>Macros:</strong><br>
+                Calories: 250 kcal<br>
+                Protein: 30 g<br>
+                Carbohydrates: 10 g<br>
+                Fat: 5 g
             </div>
-
-            <!-- Recipe 2 -->
-            <div class="recipe">
-                <img src="path/to/image2.jpg" alt="Recipe 2">
-                <h3>Egg White Veggie Omelette</h3>
-                <p>This egg white omelette is loaded with vegetables and is an excellent source of protein without the extra calories from yolks.</p>
+            <div class="description">
+                <p><strong>Ingredients:</strong></p>
                 <ul>
-                    <li>4 egg whites</li>
-                    <li>1/2 cup spinach</li>
-                    <li>1/4 cup diced tomatoes</li>
-                    <li>1/4 cup chopped bell peppers</li>
-                </ul>
-                <p><strong>Instructions:</strong> Whisk egg whites and pour into a heated non-stick pan. Add vegetables and cook until set. Fold and serve.</p>
-            </div>
-
-            <!-- Recipe 3 -->
-            <div class="recipe">
-                <img src="path/to/image3.jpg" alt="Recipe 3">
-                <h3>Overnight Oats with Protein Powder</h3>
-                <p>This overnight oats recipe is a convenient way to start your day with a protein boost and a satisfying meal that keeps you full until lunch.</p>
-                <ul>
-                    <li>1/2 cup rolled oats</li>
-                    <li>1 cup almond milk</li>
-                    <li>1 scoop protein powder</li>
-                    <li>1/2 banana, sliced</li>
-                    <li>1 tablespoon flaxseeds</li>
-                </ul>
-                <p><strong>Instructions:</strong> Combine all ingredients in a jar and refrigerate overnight. Stir well before serving.</p>
-            </div>
-        </div>
-
-        <!-- Lunch Recipes -->
-        <div class="section">
-            <h2>Lunch Recipes</h2>
-            <!-- Recipe 4 -->
-            <div class="recipe">
-                <img src="path/to/image4.jpg" alt="Recipe 4">
-                <h3>Grilled Chicken Salad</h3>
-                <p>This grilled chicken salad is packed with protein and low in calories, making it a perfect choice for a healthy lunch.</p>
-                <ul>
-                    <li>1 grilled chicken breast, sliced</li>
-                    <li>2 cups mixed greens</li>
-                    <li>1/2 cup cherry tomatoes</li>
-                    <li>1/4 cup cucumber slices</li>
-                    <li>1 tablespoon balsamic vinaigrette</li>
-                </ul>
-                <p><strong>Instructions:</strong> Toss the salad ingredients together and top with grilled chicken and balsamic vinaigrette.</p>
-            </div>
-
-            <!-- Recipe 5 -->
-            <div class="recipe">
-                <img src="path/to/image5.jpg" alt="Recipe 5">
-                <h3>Tuna and White Bean Salad</h3>
-                <p>This hearty salad combines tuna and white beans for a protein-packed, low-calorie meal that's full of flavor.</p>
-                <ul>
-                    <li>1 can tuna in water, drained</li>
-                    <li>1/2 cup cooked white beans</li>
-                    <li>1/4 cup chopped red onion</li>
+                    <li>1 chicken breast (200 g)</li>
+                    <li>1 cup broccoli florets</li>
+                    <li>1 cup carrots, sliced</li>
                     <li>1 tablespoon olive oil</li>
-                    <li>1 tablespoon lemon juice</li>
-                </ul>
-                <p><strong>Instructions:</strong> Mix all ingredients in a bowl and serve chilled.</p>
-            </div>
-
-            <!-- Recipe 6 -->
-            <div class="recipe">
-                <img src="path/to/image6.jpg" alt="Recipe 6">
-                <h3>Quinoa and Black Bean Stuffed Peppers</h3>
-                <p>These stuffed peppers are packed with protein-rich quinoa and black beans, making them a filling and nutritious lunch option.</p>
-                <ul>
-                    <li>4 bell peppers, tops cut off and seeds removed</li>
-                    <li>1 cup cooked quinoa</li>
-                    <li>1 can black beans, drained and rinsed</li>
-                    <li>1/2 cup corn kernels</li>
-                    <li>1/2 cup diced tomatoes</li>
-                </ul>
-                <p><strong>Instructions:</strong> Mix quinoa, black beans, corn, and tomatoes. Stuff peppers with the mixture and bake at 375°F (190°C) for 30 minutes.</p>
-            </div>
-        </div>
-
-        <!-- Dinner Recipes -->
-        <div class="section">
-            <h2>Dinner Recipes</h2>
-            <!-- Recipe 7 -->
-            <div class="recipe">
-                <img src="path/to/image7.jpg" alt="Recipe 7">
-                <h3>Turkey and Spinach Stuffed Bell Peppers</h3>
-                <p>These stuffed bell peppers are a great way to enjoy a high-protein, low-calorie dinner that's both filling and nutritious.</p>
-                <ul>
-                    <li>4 bell peppers, tops cut off and seeds removed</li>
-                    <li>1/2 pound ground turkey</li>
-                    <li>1 cup spinach, chopped</li>
-                    <li>1/2 cup cooked quinoa</li>
-                </ul>
-                <p><strong>Instructions:</strong> Mix ground turkey, spinach, and quinoa. Stuff peppers with the mixture and bake at 375°F (190°C) for 30 minutes.</p>
-            </div>
-
-            <!-- Recipe 8 -->
-            <div class="recipe">
-                <img src="path/to/image8.jpg" alt="Recipe 8">
-                <h3>Baked Cod with Lemon and Herbs</h3>
-                <p>This baked cod is a light and flavorful dish that is high in protein and low in calories, making it an excellent dinner choice.</p>
-                <ul>
-                    <li>4 cod fillets</li>
-                    <li>1 lemon, sliced</li>
-                    <li>2 tablespoons fresh herbs (such as parsley or dill)</li>
                     <li>Salt and pepper to taste</li>
                 </ul>
-                <p><strong>Instructions:</strong> Place cod fillets on a baking sheet, season with salt, pepper, and herbs. Top with lemon slices and bake at 400°F (200°C) for 15-20 minutes.</p>
+                <p><strong>Instructions:</strong></p>
+                <ol>
+                    <li>Season the chicken breast with salt and pepper.</li>
+                    <li>Grill the chicken over medium heat for about 6-7 minutes per side, or until fully cooked.</li>
+                    <li>Meanwhile, steam the broccoli and carrots until tender.</li>
+                    <li>Drizzle the vegetables with olive oil and season with salt and pepper.</li>
+                    <li>Serve the grilled chicken breast with the steamed vegetables.</li>
+                </ol>
             </div>
+        </div>
 
-            <!-- Recipe 9 -->
-            <div class="recipe">
-                <img src="path/to/image9.jpg" alt="Recipe 9">
-                <h3>Spicy Chicken and Vegetable Stir-Fry</h3>
-                <p>This stir-fry is packed with protein and vegetables, making it a quick and nutritious dinner option.</p>
+        <!-- Recipe 2 -->
+        <div class="recipe">
+            <h2>Quinoa Salad with Chickpeas and Spinach</h2>
+            <div class="macros">
+                <strong>Macros:</strong><br>
+                Calories: 300 kcal<br>
+                Protein: 15 g<br>
+                Carbohydrates: 45 g<br>
+                Fat: 8 g
+            </div>
+            <div class="description">
+                <p><strong>Ingredients:</strong></p>
                 <ul>
-                    <li>1 pound chicken breast, sliced</li>
-                    <li>2 cups mixed vegetables (bell peppers, broccoli, carrots)</li>
-                    <li>2 tablespoons soy sauce</li>
-                    <li>1 tablespoon sriracha sauce</li>
+                    <li>1 cup cooked quinoa</li>
+                    <li>1 cup chickpeas, drained and rinsed</li>
+                    <li>1 cup fresh spinach, chopped</li>
+                    <li>1 tablespoon lemon juice</li>
                     <li>1 tablespoon olive oil</li>
+                    <li>Salt and pepper to taste</li>
                 </ul>
-                <p><strong>Instructions:</strong> Heat oil in a pan, add chicken and cook until browned. Add vegetables and sauces, stir-fry until cooked through.</p>
+                <p><strong>Instructions:</strong></p>
+                <ol>
+                    <li>In a large bowl, combine the cooked quinoa, chickpeas, and chopped spinach.</li>
+                    <li>In a small bowl, whisk together the lemon juice, olive oil, salt, and pepper.</li>
+                    <li>Pour the dressing over the salad and toss to combine.</li>
+                    <li>Serve chilled or at room temperature.</li>
+                </ol>
             </div>
         </div>
 
-        <!-- Snacks Recipes -->
-        <div class="section">
-            <h2>Snacks Recipes</h2>
-            <!-- Recipe 10 -->
-            <div class="recipe">
-                <img src="path/to/image10.jpg" alt="Recipe 10">
-                <h3>Protein Balls</h3>
-                <p>These protein balls are a convenient and tasty snack that's high in protein and low in calories.</p>
-                <ul>
-                    <li>1 cup rolled oats</li>
-                    <li>1/2 cup protein powder</li>
-                    <li>1/4 cup almond butter</li>
-                    <li>1/4 cup honey</li>
-                    <li>1/4 cup dark chocolate chips (optional)</li>
-                </ul>
-                <p><strong>Instructions:</strong> Mix all ingredients in a bowl. Form into small balls and refrigerate until firm.</p>
+        <!-- Recipe 3 -->
+        <div class="recipe">
+            <h2>Turkey and Vegetable Stir-Fry</h2>
+            <div class="macros">
+                <strong>Macros:</strong><br>
+                Calories: 350 kcal<br>
+                Protein: 25 g<br>
+                Carbohydrates: 20 g<br>
+                Fat: 15 g
             </div>
-
-            <!-- Recipe 11 -->
-            <div class="recipe">
-                <img src="path/to/image11.jpg" alt="Recipe 11">
-                <h3>Greek Yogurt with Almonds and Honey</h3>
-                <p>This simple snack combines Greek yogurt with almonds and honey for a protein-rich and satisfying treat.</p>
+            <div class="description">
+                <p><strong>Ingredients:</strong></p>
                 <ul>
-                    <li>1 cup Greek yogurt</li>
-                    <li>1/4 cup almonds, chopped</li>
-                    <li>1 tablespoon honey</li>
+                    <li>200 g ground turkey</li>
+                    <li>1 bell pepper, sliced</li>
+                    <li>1 cup snap peas</li>
+                    <li>2 tablespoons soy sauce</li>
+                    <li>1 tablespoon olive oil</li>
+                    <li>1 teaspoon garlic, minced</li>
+                    <li>1 teaspoon ginger, minced</li>
+                    <li>Salt and pepper to taste</li>
                 </ul>
-                <p><strong>Instructions:</strong> Top Greek yogurt with almonds and honey. Serve immediately.</p>
-            </div>
-
-            <!-- Recipe 12 -->
-            <div class="recipe">
-                <img src="path/to/image12.jpg" alt="Recipe 12">
-                <h3>Veggie Sticks with Hummus</h3>
-                <p>Crunchy veggie sticks paired with protein-rich hummus make for a healthy and satisfying snack.</p>
-                <ul>
-                    <li>1 cup carrot sticks</li>
-                    <li>1 cup cucumber sticks</li>
-                    <li>1/2 cup hummus</li>
-                </ul>
-                <p><strong>Instructions:</strong> Serve veggie sticks with hummus for dipping.</p>
+                <p><strong>Instructions:</strong></p>
+                <ol>
+                    <li>Heat olive oil in a large skillet over medium-high heat.</li>
+                    <li>Add minced garlic and ginger, and sauté for 1 minute.</li>
+                    <li>Add the ground turkey and cook until browned and fully cooked.</li>
+                    <li>Add the bell pepper and snap peas, and cook until vegetables are tender.</li>
+                    <li>Stir in the soy sauce and season with salt and pepper.</li>
+                    <li>Serve hot with a side of brown rice if desired.</li>
+                </ol>
             </div>
         </div>
 
-        <!-- Desserts Recipes -->
-        <div class="section">
-            <h2>Desserts Recipes</h2>
-            <!-- Recipe 13 -->
-            <div class="recipe">
-                <img src="path/to/image13.jpg" alt="Recipe 13">
-                <h3>Protein-Packed Chocolate Pudding</h3>
-                <p>This chocolate pudding is a delicious and healthy dessert option that's high in protein and low in calories.</p>
-                <ul>
-                    <li>1 cup almond milk</li>
-                    <li>2 tablespoons cocoa powder</li>
-                    <li>1 scoop protein powder</li>
-                    <li>1 tablespoon cornstarch</li>
-                </ul>
-                <p><strong>Instructions:</strong> Combine all ingredients in a saucepan. Cook over medium heat, stirring constantly, until thickened. Chill before serving.</p>
+        <!-- Recipe 4 -->
+        <div class="recipe">
+            <h2>Greek Yogurt and Berry Parfait</h2>
+            <div class="macros">
+                <strong>Macros:</strong><br>
+                Calories: 180 kcal<br>
+                Protein: 15 g<br>
+                Carbohydrates: 20 g<br>
+                Fat: 3 g
             </div>
-
-            <!-- Recipe 14 -->
-            <div class="recipe">
-                <img src="path/to/image14.jpg" alt="Recipe 14">
-                <h3>Berry Protein Smoothie</h3>
-                <p>This smoothie is a sweet and satisfying dessert that's rich in protein and antioxidants.</p>
+            <div class="description">
+                <p><strong>Ingredients:</strong></p>
                 <ul>
-                    <li>1 cup mixed berries</li>
-                    <li>1 scoop protein powder</li>
-                    <li>1 cup almond milk</li>
+                    <li>1 cup Greek yogurt (non-fat)</li>
+                    <li>1/2 cup mixed berries (strawberries, blueberries, raspberries)</li>
                     <li>1 tablespoon honey</li>
-                </ul>
-                <p><strong>Instructions:</strong> Blend all ingredients until smooth. Serve immediately.</p>
-            </div>
-
-            <!-- Recipe 15 -->
-            <div class="recipe">
-                <img src="path/to/image15.jpg" alt="Recipe 15">
-                <h3>Frozen Yogurt Bark</h3>
-                <p>This frozen yogurt bark is a refreshing and protein-packed treat that’s easy to make and enjoy.</p>
-                <ul>
-                    <li>1 cup Greek yogurt</li>
-                    <li>1 tablespoon honey</li>
-                    <li>1/4 cup mixed berries</li>
                     <li>1 tablespoon chia seeds</li>
                 </ul>
-                <p><strong>Instructions:</strong> Spread yogurt on a baking sheet, drizzle with honey, and top with berries and chia seeds. Freeze until firm, then break into pieces.</p>
+                <p><strong>Instructions:</strong></p>
+                <ol>
+                    <li>In a glass or bowl, layer the Greek yogurt and mixed berries.</li>
+                    <li>Drizzle honey over the top and sprinkle with chia seeds.</li>
+                    <li>Enjoy immediately or refrigerate for a couple of hours.</li>
+                </ol>
             </div>
         </div>
 
-        <footer>
-            <p>&copy; 2024 High Protein, Low Calorie Recipes. All rights reserved.</p>
-        </footer>
+        <!-- Add more recipes as needed -->
+
     </div>
 </body>
 </html>
