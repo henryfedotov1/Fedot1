@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-books - Fedot</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"> <!-- Added font link -->
     <style>
         * {
             margin: 0;
@@ -14,7 +15,7 @@
         body {
             background-color: #fff;
             color: #333;
-            font-family: Arial, sans-serif;
+            font-family: Arial, sans-serif; /* Updated font-family */
             text-align: center;
             margin: 0;
             padding-top: 100px; /* Increased space from header */
@@ -86,8 +87,8 @@
         }
         .ebook-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+            gap: 30px; /* Increased space between items */
             justify-content: center;
             align-items: start;
         }
@@ -101,6 +102,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            max-width: 100%; /* Ensure items fit within their container */
         }
         .ebook-item:hover {
             transform: translateY(-5px);
@@ -109,10 +111,10 @@
         .ebook-item img {
             width: 100%;
             height: auto;
-            max-height: 200px;
+            max-height: 250px; /* Increased space for the image */
             object-fit: cover;
             border-radius: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 15px; /* Increased space below the image */
         }
         .ebook-item h2 {
             font-size: 1.5em;
