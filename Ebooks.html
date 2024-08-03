@@ -12,19 +12,18 @@
             box-sizing: border-box;
         }
         body {
-            background-color: #000;
-            color: #fff;
+            background-color: #fff;
+            color: #333;
             font-family: Arial, sans-serif;
             text-align: center;
-            margin-top: 80px;
-            min-height: 120vh;
-            position: relative;
-            overflow-x: hidden;
+            margin: 0;
+            padding-top: 100px; /* Increased space from header */
+            min-height: 100vh;
         }
         header {
-            background-color: black;
-            color: white;
-            padding: 10px;
+            background-color: #000;
+            color: #fff;
+            padding: 15px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -34,6 +33,7 @@
             right: 0;
             z-index: 1000;
             width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         .logo {
             width: 100px;
@@ -49,10 +49,14 @@
             margin-left: 20px;
         }
         .top-nav a {
-            color: white;
+            color: #fff;
             text-decoration: none;
             margin-right: 20px;
-            font-size: 1.2em;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+        .top-nav a:hover {
+            color: #7851A9;
         }
         .menu-button {
             display: none;
@@ -63,37 +67,72 @@
             color: #fff;
             padding: 10px;
             position: absolute;
-            top: 10px;
-            left: 10px;
+            top: 15px;
+            left: 15px;
             z-index: 1002;
         }
         .menu-button i {
             font-size: 1.2em;
         }
         main {
-            background-color: #fff;
-            padding: 50px;
-            padding-top: 250px;
-            padding-bottom: 100px;
-            min-height: calc(100vh - 150px);
-            position: relative;
+            padding: 80px 20px; /* Increased padding to provide more space */
+            min-height: calc(100vh - 130px);
             color: #000;
         }
-        .ebook-list {
-            list-style: none;
-            padding: 0;
+        main h1 {
+            margin-bottom: 40px; /* Increased space between title and e-books */
             color: #7851A9;
+            font-size: 2em;
         }
-        .ebook-list li {
-            margin-bottom: 20px;
-            font-size: 1.2em;
+        .ebook-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            justify-content: center;
+            align-items: start;
         }
-        .ebook-list a {
+        .ebook-item {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .ebook-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .ebook-item img {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .ebook-item h2 {
+            font-size: 1.5em;
+            color: #7851A9;
+            margin-bottom: 10px;
+        }
+        .ebook-item p {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .ebook-item a {
             color: #7851A9;
             text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
         }
-        .ebook-list a:hover {
+        .ebook-item a:hover {
             text-decoration: underline;
+            color: #4a2a7a;
         }
 
         /* Sidebar styles */
@@ -191,11 +230,24 @@
 
 <main>
     <h1>E-books Collection</h1>
-    <ul class="ebook-list">
-        <li><a href="Book">E-book 1 </a></li>
-        <li><a href="Book2">E-book 2 </a></li>
-        <li><a href="Book3">E-book 3 </a></li>
-    </ul>
+    <div class="ebook-grid">
+        <div class="ebook-item">
+            <img src="My best Recipes.pdf" alt="E-book 1 Cover">
+            <h2><a href="Book"> High Protein, Low Cal </a></h2>
+            <p>Discover the secrets to effective workouts with our comprehensive guide. This e-book covers essential tips and techniques for maximizing your fitness results.</p>
+        </div>
+        <div class="ebook-item">
+            <img src="path/to/cover2.jpg" alt="E-book 2 Cover">
+            <h2><a href="Book2">E-book 2</a></h2>
+            <p>Transform your body with this advanced training plan. Learn new exercises and strategies to push your limits and achieve your goals.</p>
+        </div>
+        <div class="ebook-item">
+            <img src="path/to/cover3.jpg" alt="E-book 3 Cover">
+            <h2><a href="Book3">E-book 3</a></h2>
+            <p>Get inspired with motivational stories and expert advice. This e-book is designed to keep you motivated and on track with your fitness journey.</p>
+        </div>
+        <!-- Add more e-book items as needed -->
+    </div>
 </main>
 
 <div class="sidebar" id="sidebar">
