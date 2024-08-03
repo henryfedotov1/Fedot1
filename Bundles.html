@@ -38,7 +38,7 @@
         .language-selector select:hover {
             border-color: #6a4596; /* Darker purple on hover */
         }
-        .bundle {
+        .price-list {
             display: none;
             padding: 20px;
             border: 2px solid #7851A9; /* Royal purple border */
@@ -49,11 +49,24 @@
             background-color: #f9f9f9;
             text-align: center;
         }
-        .bundle h2 {
+        .price-list h2 {
             color: #7851A9; /* Royal purple color for headings */
         }
-        .bundle p {
-            font-size: 1.2em;
+        .price-list table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .price-list th, .price-list td {
+            padding: 10px;
+            border: 1px solid #7851A9; /* Royal purple border */
+        }
+        .price-list th {
+            background-color: #f4f4f4;
+            color: #7851A9; /* Royal purple color */
+        }
+        .price-list td {
+            color: #000;
         }
         .cta-button {
             background-color: #7851A9; /* Royal purple background */
@@ -82,50 +95,75 @@
         </select>
     </div>
 
-    <div id="en" class="bundle">
-        <h2>Basic Bundle</h2>
-        <p>This bundle includes basic training services at an affordable rate. Perfect for beginners.</p>
-        <a href="link-to-basic-bundle" class="cta-button">Request the Basic Bundle</a>
+    <!-- English Price List -->
+    <div id="en" class="price-list">
+        <h2>Price List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Bundle</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Basic Bundle</td>
+                    <td>This bundle includes basic training services at an affordable rate. Perfect for beginners.</td>
+                    <td>$100</td>
+                </tr>
+                <tr>
+                    <td>Intermediate Bundle</td>
+                    <td>This bundle includes intermediate training services for those looking to step up their game.</td>
+                    <td>$200</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="link-to-request-bundle" class="cta-button">Request Bundle</a>
     </div>
 
-    <div id="en" class="bundle">
-        <h2>Intermediate Bundle</h2>
-        <p>This bundle includes intermediate training services for those looking to step up their game.</p>
-        <a href="link-to-intermediate-bundle" class="cta-button">Request Intermediate Bundle</a>
-    </div>
-    
-    <div id="he" class="bundle">
-        <h2>חבילת בסיס</h2>
-        <p>חבילה זו כוללת שירותי אימון בסיסיים במחיר נגיש. מושלם למתחילים.</p>
-        <a href="link-to-basic-bundle" class="cta-button">תדרוש את חבילת בסיס</a>
-    </div>
-
-    <div id="he" class="bundle">
-        <h2>חבילת ביניים</h2>
-        <p>חבילה זו כוללת שירותי אימון מתקדמים למי שמעוניין לשדרג את האימון שלו.</p>
-        <a href="link-to-intermediate-bundle" class="cta-button">תדרוש את החבילה המתקדמת</a>
+    <!-- Hebrew Price List -->
+    <div id="he" class="price-list">
+        <h2>רשימת מחירים</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>חבילה</th>
+                    <th>תיאור</th>
+                    <th>מחיר</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>חבילת בסיס</td>
+                    <td>חבילה זו כוללת שירותי אימון בסיסיים במחיר נגיש. מושלם למתחילים.</td>
+                    <td>₪400</td>
+                </tr>
+                <tr>
+                    <td>חבילת ביניים</td>
+                    <td>חבילה זו כוללת שירותי אימון מתקדמים למי שמעוניין לשדרג את האימון שלו.</td>
+                    <td>₪800</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="link-to-request-bundle" class="cta-button">תדרוש חבילה</a>
     </div>
 
     <script>
         function changeLanguage() {
             var selectedLanguage = document.getElementById('language-select').value;
-            var bundles = document.getElementsByClassName('bundle');
-            for (var i = 0; i < bundles.length; i++) {
-                bundles[i].style.display = 'none';
+            var priceLists = document.getElementsByClassName('price-list');
+            for (var i = 0; i < priceLists.length; i++) {
+                priceLists[i].style.display = 'none';
             }
-            var selectedBundles = document.querySelectorAll('#' + selectedLanguage + '.bundle');
-            for (var i = 0; i < selectedBundles.length; i++) {
-                selectedBundles[i].style.display = 'block';
+            var selectedPriceList = document.getElementById(selectedLanguage);
+            if (selectedPriceList) {
+                selectedPriceList.style.display = 'block';
             }
         }
 
-        // Display both language options on page load
+        // Display default language on page load
         window.onload = function() {
-            var bundles = document.getElementsByClassName('bundle');
-            for (var i = 0; i < bundles.length; i++) {
-                bundles[i].style.display = 'block'; // Show all bundles initially
-            }
-            // Optionally set default language display
             document.getElementById('en').style.display = 'block'; // Default to English
         }
     </script>
