@@ -12,12 +12,12 @@
             box-sizing: border-box;
         }
         body {
-            background-color: #fff; /* Changed from linear-gradient to solid white */
+            background-color: #f4f4f4; /* Light grey background */
             color: #000;
-            font-family: Arial, sans-serif;
+            font-family: 'Garamond', serif; /* Royal font */
             text-align: center;
             margin: 0;
-            min-height: 100vh; /* Adjusted to ensure full height */
+            min-height: 100vh;
             position: relative;
             overflow-x: hidden;
         }
@@ -76,9 +76,9 @@
             font-size: 1.2em;
         }
         main {
-            background-color: #fff; /* Changed to match the body background */
+            background-color: #fff;
             padding: 60px;
-            padding-top: 120px; /* Adjusted padding-top to create space between the header and content */
+            padding-top: 120px;
             padding-bottom: 100px;
             min-height: calc(100vh - 150px);
             position: relative;
@@ -86,23 +86,37 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* Center content vertically */
+            justify-content: center;
+        }
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
         }
         .cta-button {
             background-color: #7851A9;
             color: #fff;
             border: none;
-            border-radius: 5px;
-            padding: 15px 30px;
+            border-radius: 10px;
+            padding: 20px 40px;
             font-size: 1.2em;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
             margin: 15px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
         .cta-button:hover {
             background-color: #6a4596;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .cta-description {
+            font-size: 1em;
+            color: #333;
+            margin-top: 10px;
+            max-width: 300px;
+            line-height: 1.5;
         }
         .sidebar {
             height: 100%;
@@ -150,7 +164,6 @@
             margin-right: 10px;
             font-size: 1.5em;
         }
-
         /* Responsive design */
         @media (max-width: 768px) {
             .top-nav {
@@ -167,7 +180,6 @@
                 left: 0;
             }
         }
-
         @media (max-width: 390px) {
             .menu-button {
                 font-size: 1.2em;
@@ -197,9 +209,20 @@
 </header>
 
 <main>
-    <a href="Bundles.html" class="cta-button">Price list</a>
-    <a href="TrainingInquiryForm.html" target="_blank" class="cta-button">Training Inquiry Form - google forms</a>
-    <a href="https://forms.gle/example-nutrition" target="_blank" class="cta-button">Nutrition Inquiry Form - google forms</a>
+    <div class="cta-container">
+        <div class="cta-item">
+            <a href="Bundles.html" class="cta-button">Price List</a>
+            <p class="cta-description">Explore our comprehensive price list for all available training bundles, tailored to meet your fitness needs.</p>
+        </div>
+        <div class="cta-item">
+            <a href="TrainingInquiryForm.html" target="_blank" class="cta-button">Training Inquiry Form</a>
+            <p class="cta-description">Fill out this form to inquire about our personalized training programs. We're here to help you achieve your goals.</p>
+        </div>
+        <div class="cta-item">
+            <a href="https://forms.gle/example-nutrition" target="_blank" class="cta-button">Nutrition Inquiry Form</a>
+            <p class="cta-description">Have questions about nutrition? Use this form to get personalized advice and recommendations for your dietary needs.</p>
+        </div>
+    </div>
 </main>
 
 <div class="sidebar" id="sidebar">
