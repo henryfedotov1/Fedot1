@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - "Fedot"</title>
+    <title>About Us - Fedot</title>
     <meta name="description" content="Discover the story behind Fedot, our mission, and the team dedicated to helping you achieve your fitness goals. Learn more about our expertise, values, and commitment to your success.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -24,7 +24,7 @@
         header {
             background-color: black;
             color: white;
-            padding: 10px;
+            padding: 15px 20px; /* Adjusted padding for height consistency */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -42,8 +42,8 @@
         .top-nav {
             display: flex;
             align-items: center;
-            width: calc(100% - 130px);
-            justify-content: flex-start; /* Adjusted width to fit the logo */
+            width: calc(100% - 140px); /* Adjusted width to fit the logo and padding */
+            justify-content: flex-start;
         }
         .top-nav nav {
             margin-left: 20px;
@@ -63,8 +63,8 @@
             color: #fff;
             padding: 10px;
             position: absolute;
-            top: 10px;
-            left: 10px;
+            top: 15px;
+            left: 15px;
             z-index: 1002;
         }
         .menu-button i {
@@ -179,6 +179,8 @@
             }
             .menu-button {
                 display: block;
+                padding: 10px;
+                font-size: 1.5em;
             }
             .sidebar {
                 width: 100%;
@@ -186,6 +188,19 @@
             }
             .sidebar.open {
                 left: 0;
+            }
+            header {
+                padding: 10px 10px; /* Decreased padding for smaller header */
+                height: 60px; /* Smaller height for phone mode */
+                align-items: center;
+                justify-content: space-between;
+            }
+            .logo {
+                width: 80px;
+            }
+            .top-nav nav a {
+                font-size: 1em;
+                margin-right: 15px;
             }
         }
 
@@ -196,6 +211,16 @@
             }
             .menu-button i {
                 font-size: 1em;
+            }
+            .logo {
+                width: 60px;
+            }
+            .top-nav nav a {
+                font-size: 0.9em;
+                margin-right: 10px;
+            }
+            header {
+                height: 50px; /* Further reduced height for very small screens */
             }
         }
     </style>
@@ -242,7 +267,6 @@
         <li><a href="Aboutus.html"><i class="fas fa-user"></i> About Us</a></li>
         <li><a href="Calculator.html"><i class="fas fa-calculator"></i> Fitness Calculator</a></li>
         <li><a href="TrainingProgram.html"><i class="fas fa-dumbbell"></i> Training Program</a></li>
-        
     </ul>
     <div class="social_media">
         <a href="#"><i class="fab fa-instagram"></i></a>
