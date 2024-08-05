@@ -292,7 +292,8 @@
 
 <script>
     function toggleSidebar() {
-        document.getElementById('sidebar').classList.toggle('open');
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('active');
     }
 
     function showCalculator(calculatorId) {
@@ -301,33 +302,39 @@
     }
 
     function calculateCalories() {
-        const weight = parseFloat(document.getElementById('weight').value);
-        const unit = document.getElementById('unit').value;
-        let weightInKg;
-
-        if (unit === 'lbs') {
-            weightInKg = weight * 0.453592;
-        } else {
-            weightInKg = weight;
+        let weight = parseFloat(document.getElementById('weight').value);
+        let unit = document.querySelector('input[name="unit"]:checked').value;
+        
+        if (unit === 'pounds') {
+            weight = weight / 2.2046226218; // Convert pounds to kilograms
         }
 
-        const calories = weightInKg * 24; // Example calculation
-        document.getElementById('calorie-result').textContent = `Estimated daily calories: ${calories.toFixed(2)} kcal`;
+        const maintenanceCalories = Math.round(weight * 33);
+        const bulkCalories = Math.round(maintenanceCalories + 350);
+        const cutCalories = Math.round(maintenanceCalories - 500);
+        const aggressiveCutCalories = Math.round(cutCalories - 500);
+
+        document.getElementById('maintenance').innerText = `Maintenance calorie intake: ${maintenanceCalories.toFixed(0)} kcal`;
+        document.getElementById('bulk').innerText = `Suggested bulk calorie intake: ${bulkCalories.toFixed(0)} kcal`;
+        document.getElementById('cut').innerText = `Suggested cut calorie intake: ${cutCalories.toFixed(0)} kcal`;
+        document.getElementById('aggressive-cut').innerText = `Suggested aggressive cut calorie intake: ${aggressiveCutCalories.toFixed(0)} kcal (Note: This calorie intake isn't healthy and might result in muscle loss)`;
     }
 
     function calculateMaxLift() {
-        const oneRepMax = parseFloat(document.getElementById('one-rep-max').value);
-        const unit = document.getElementById('unit-lift').value;
-        let oneRepMaxInKg;
+        let weight = parseFloat(document.getElementById('lift-weight').value);
+        let reps = parseInt(document.getElementById('reps').value);
+        let unit = document.querySelector('input[name="lift-unit"]:checked').value;
 
-        if (unit === 'lbs') {
-            oneRepMaxInKg = oneRepMax * 0.453592;
+        const maxLiftLbs = Math.round(weight * (1 + reps / 30));
+        const maxLiftKg = (maxLiftLbs / 2.2046226218).toFixed(2);
+
+        if (unit === 'kg') {
+            document.getElementById('max-lift-lbs').innerText = `Estimated 1 Rep Max: ${(maxLiftKg * 2.2046226218).toFixed(0)} lbs`;
+            document.getElementById('max-lift-kg').innerText = `Estimated 1 Rep Max: ${maxLiftKg} kg`;
         } else {
-            oneRepMaxInKg = oneRepMax;
+            document.getElementById('max-lift-lbs').innerText = `Estimated 1 Rep Max: ${maxLiftLbs.toFixed(0)} lbs`;
+            document.getElementById('max-lift-kg').innerText = `Estimated 1 Rep Max: ${(maxLiftLbs / 2.2046226218).toFixed(2)} kg`;
         }
-
-        const result = oneRepMaxInKg * 0.85; // Example calculation
-        document.getElementById('max-lift-result').textContent = `Estimated lift: ${result.toFixed(2)} kg`;
     }
 </script>
 </body>
