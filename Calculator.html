@@ -274,18 +274,18 @@
     </div>
 
     <div id="max-lift-calculator" class="calculator" style="display: none;">
-        <p>Enter your one-rep max:</p>
-        <input type="number" id="one-rep-max" placeholder="One-Rep Max" required>
+        <p>Enter the weight you lifted:</p>
+        <input type="number" id="lift-weight" placeholder="Weight lifted" required>
         <div style="margin-top: 10px;">
-            <label for="unit-lift">Unit:</label>
-            <select id="unit-lift">
-                <option value="kg">kg</option>
-                <option value="lbs">lbs</option>
-            </select>
+            <label><input type="radio" name="lift-unit" value="kg" checked> Kilograms</label>
+            <label><input type="radio" name="lift-unit" value="lbs"> Pounds</label>
         </div>
+        <p>Enter the number of reps:</p>
+        <input type="number" id="reps" placeholder="Reps" required>
         <button onclick="calculateMaxLift()">Calculate</button>
         <div class="results">
-            <p id="max-lift-result"></p>
+            <p id="max-lift-lbs"></p>
+            <p id="max-lift-kg"></p>
         </div>
     </div>
 </main>
