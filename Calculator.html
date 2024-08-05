@@ -132,20 +132,37 @@
         }
         /* Responsive design */
         @media (max-width: 768px) {
+            header {
+                padding: 15px; /* Decreased padding for a slightly smaller header */
+                height: 60px; /* Reduced height for a smaller header */
+                box-sizing: border-box; /* Ensure padding is included in the height */
+            }
+            .logo {
+                display: none; /* Hide the logo in phone mode */
+            }
             .top-nav {
-                display: none;
+                display: none; /* Hide top navigation in phone mode */
             }
             .menu-button {
-                display: block;
+                display: block; /* Show the menu button in phone mode */
+                font-size: 1.8em; /* Adjust font size for visibility */
+                padding: 12px; /* Adjust padding for a better click area */
+                position: absolute;
+                top: 10px; /* Adjust position if needed */
+                left: 10px; /* Adjust position if needed */
+            }
+            main {
+                padding-top: 70px; /* Adjust padding-top to match the smaller header height */
             }
         }
+
         @media (max-width: 390px) {
             .menu-button {
-                font-size: 1.2em;
-                padding: 8px;
+                font-size: 1.6em; /* Adjust for very small screens */
+                padding: 10px;
             }
             .menu-button i {
-                font-size: 1em;
+                font-size: 1.4em;
             }
         }
     </style>
