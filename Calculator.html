@@ -261,15 +261,15 @@
         <p>Enter your weight:</p>
         <input type="number" id="weight" placeholder="Weight" required>
         <div style="margin-top: 10px;">
-            <label for="unit">Unit:</label>
-            <select id="unit">
-                <option value="kg">kg</option>
-                <option value="lbs">lbs</option>
-            </select>
+            <label><input type="radio" name="unit" value="kilograms" checked> Kilograms</label>
+            <label><input type="radio" name="unit" value="pounds"> Pounds</label>
         </div>
         <button onclick="calculateCalories()">Calculate</button>
         <div class="results">
-            <p id="calorie-result"></p>
+            <p id="maintenance"></p>
+            <p id="bulk"></p>
+            <p id="cut"></p>
+            <p id="aggressive-cut"></p>
         </div>
     </div>
 
