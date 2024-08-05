@@ -67,32 +67,6 @@
         .menu-button i {
             font-size: 1.2em;
         }
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 250px;
-            height: 100%;
-            background-color: #333;
-            color: #fff;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-            padding: 15px;
-            z-index: 1001;
-        }
-        .sidebar.active {
-            transform: translateX(0);
-        }
-        .sidebar a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            padding: 10px;
-            font-size: 1.2em;
-        }
-        .sidebar a:hover {
-            background-color: #555;
-        }
         main {
             background-color: #fff;
             padding-top: 70px; /* Adjusted to match header height */
@@ -100,6 +74,7 @@
             min-height: calc(100vh - 150px); /* Adjusted to account for header height */
             position: relative;
             color: #000;
+            
         }
         h1 {
             font-size: 2em;
@@ -155,6 +130,52 @@
         .calculator-switch button:hover {
             background-color: #333;
         }
+        /* Sidebar styles */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px; /* Start hidden */
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            color: #fff;
+            transition: left 0.3s ease;
+            padding-top: 60px;
+            z-index: 1001;
+        }
+        .sidebar.open {
+            left: 0;
+        }
+        .sidebar h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+        }
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar ul li a i {
+            margin-right: 10px; /* Space between icon and text */
+        }
+        .sidebar .social_media {
+            margin-top: auto;
+            padding: 10px;
+            text-align: center;
+        }
+        .sidebar .social_media a {
+            color: #fff;
+            margin: 0 5px;
+            text-decoration: none;
+        }
         /* Responsive design */
         @media (max-width: 768px) {
             header {
@@ -178,6 +199,9 @@
             }
             main {
                 padding-top: 70px; /* Adjust padding-top to match the smaller header height */
+            }
+            .sidebar a i {
+                margin-right: 15px; /* Adjust spacing as needed */
             }
         }
 
@@ -209,13 +233,20 @@
     </div>
 </header>
 
-<aside class="sidebar" id="sidebar">
-    <a href="index.html">Home</a>
-    <a href="Ebooks.html">E-books</a>
-    <a href="Aboutus.html">About Us</a>
-    <a href="Calculator.html">Fitness Calculator</a>
-    <a href="TrainingProgram.html">Training Program</a>
-</aside>
+<div class="sidebar" id="sidebar">
+    <h2>Menu</h2>
+    <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="Ebooks.html"><i class="fas fa-book"></i> E-books</a></li>
+        <li><a href="Aboutus.html"><i class="fas fa-user"></i> About Us</a></li>
+        <li><a href="Calculator.html"><i class="fas fa-calculator"></i> Fitness Calculator</a></li>
+        <li><a href="TrainingProgram.html"><i class="fas fa-dumbbell"></i> Training Program</a></li>
+    </ul>
+    <div class="social_media">
+        <a href="https://instagram.com/fedot" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com/fedot" target="_blank"><i class="fab fa-twitter"></i></a>
+    </div>
+</div>
 
 <main>
     <h1>Fitness Calculators</h1>
@@ -230,81 +261,73 @@
         <p>Enter your weight:</p>
         <input type="number" id="weight" placeholder="Weight" required>
         <div style="margin-top: 10px;">
-            <label><input type="radio" name="unit" value="kilograms" checked> Kilograms</label>
-            <label><input type="radio" name="unit" value="pounds"> Pounds</label>
+            <label for="unit">Unit:</label>
+            <select id="unit">
+                <option value="kg">kg</option>
+                <option value="lbs">lbs</option>
+            </select>
         </div>
         <button onclick="calculateCalories()">Calculate</button>
         <div class="results">
-            <p id="maintenance"></p>
-            <p id="bulk"></p>
-            <p id="cut"></p>
-            <p id="aggressive-cut"></p>
+            <p id="calorie-result"></p>
         </div>
     </div>
 
     <div id="max-lift-calculator" class="calculator" style="display: none;">
-        <p>Enter the weight you lifted:</p>
-        <input type="number" id="lift-weight" placeholder="Weight lifted" required>
+        <p>Enter your one-rep max:</p>
+        <input type="number" id="one-rep-max" placeholder="One-Rep Max" required>
         <div style="margin-top: 10px;">
-            <label><input type="radio" name="lift-unit" value="kg" checked> Kilograms</label>
-            <label><input type="radio" name="lift-unit" value="lbs"> Pounds</label>
+            <label for="unit-lift">Unit:</label>
+            <select id="unit-lift">
+                <option value="kg">kg</option>
+                <option value="lbs">lbs</option>
+            </select>
         </div>
-        <p>Enter the number of reps:</p>
-        <input type="number" id="reps" placeholder="Reps" required>
         <button onclick="calculateMaxLift()">Calculate</button>
         <div class="results">
-            <p id="max-lift-lbs"></p>
-            <p id="max-lift-kg"></p>
+            <p id="max-lift-result"></p>
         </div>
     </div>
 </main>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 <script>
     function toggleSidebar() {
-        const sidebar = document.getElementById('sidebar');
-        sidebar.classList.toggle('active');
-    }
-
-    function calculateCalories() {
-        let weight = parseFloat(document.getElementById('weight').value);
-        let unit = document.querySelector('input[name="unit"]:checked').value;
-        
-        if (unit === 'pounds') {
-            weight = weight / 2.2046226218; // Convert pounds to kilograms
-        }
-
-        const maintenanceCalories = Math.round(weight * 33);
-        const bulkCalories = Math.round(maintenanceCalories + 350);
-        const cutCalories = Math.round(maintenanceCalories - 500);
-        const aggressiveCutCalories = Math.round(cutCalories - 500);
-
-        document.getElementById('maintenance').innerText = `Maintenance calorie intake: ${maintenanceCalories.toFixed(0)} kcal`;
-        document.getElementById('bulk').innerText = `Suggested bulk calorie intake: ${bulkCalories.toFixed(0)} kcal`;
-        document.getElementById('cut').innerText = `Suggested cut calorie intake: ${cutCalories.toFixed(0)} kcal`;
-        document.getElementById('aggressive-cut').innerText = `Suggested aggressive cut calorie intake: ${aggressiveCutCalories.toFixed(0)} kcal (Note: This calorie intake isn't healthy and might result in muscle loss)`;
-    }
-
-    function calculateMaxLift() {
-        let weight = parseFloat(document.getElementById('lift-weight').value);
-        let reps = parseInt(document.getElementById('reps').value);
-        let unit = document.querySelector('input[name="lift-unit"]:checked').value;
-
-        const maxLiftLbs = Math.round(weight * (1 + reps / 30));
-        const maxLiftKg = (maxLiftLbs / 2.2046226218).toFixed(2);
-
-        if (unit === 'kg') {
-            document.getElementById('max-lift-lbs').innerText = `Estimated 1 Rep Max: ${(maxLiftKg * 2.2046226218).toFixed(0)} lbs`;
-            document.getElementById('max-lift-kg').innerText = `Estimated 1 Rep Max: ${maxLiftKg} kg`;
-        } else {
-            document.getElementById('max-lift-lbs').innerText = `Estimated 1 Rep Max: ${maxLiftLbs.toFixed(0)} lbs`;
-            document.getElementById('max-lift-kg').innerText = `Estimated 1 Rep Max: ${(maxLiftLbs / 2.2046226218).toFixed(2)} kg`;
-        }
+        document.getElementById('sidebar').classList.toggle('open');
     }
 
     function showCalculator(calculatorId) {
         document.getElementById('calorie-calculator').style.display = calculatorId === 'calorie-calculator' ? 'block' : 'none';
         document.getElementById('max-lift-calculator').style.display = calculatorId === 'max-lift-calculator' ? 'block' : 'none';
+    }
+
+    function calculateCalories() {
+        const weight = parseFloat(document.getElementById('weight').value);
+        const unit = document.getElementById('unit').value;
+        let weightInKg;
+
+        if (unit === 'lbs') {
+            weightInKg = weight * 0.453592;
+        } else {
+            weightInKg = weight;
+        }
+
+        const calories = weightInKg * 24; // Example calculation
+        document.getElementById('calorie-result').textContent = `Estimated daily calories: ${calories.toFixed(2)} kcal`;
+    }
+
+    function calculateMaxLift() {
+        const oneRepMax = parseFloat(document.getElementById('one-rep-max').value);
+        const unit = document.getElementById('unit-lift').value;
+        let oneRepMaxInKg;
+
+        if (unit === 'lbs') {
+            oneRepMaxInKg = oneRepMax * 0.453592;
+        } else {
+            oneRepMaxInKg = oneRepMax;
+        }
+
+        const result = oneRepMaxInKg * 0.85; // Example calculation
+        document.getElementById('max-lift-result').textContent = `Estimated lift: ${result.toFixed(2)} kg`;
     }
 </script>
 </body>
