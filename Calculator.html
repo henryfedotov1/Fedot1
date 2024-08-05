@@ -67,6 +67,32 @@
         .menu-button i {
             font-size: 1.2em;
         }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            color: #fff;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            padding: 15px;
+            z-index: 1001;
+        }
+        .sidebar.active {
+            transform: translateX(0);
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            font-size: 1.2em;
+        }
+        .sidebar a:hover {
+            background-color: #555;
+        }
         main {
             background-color: #fff;
             padding-top: 70px; /* Adjusted to match header height */
@@ -74,7 +100,6 @@
             min-height: calc(100vh - 150px); /* Adjusted to account for header height */
             position: relative;
             color: #000;
-            
         }
         h1 {
             font-size: 2em;
@@ -184,6 +209,14 @@
     </div>
 </header>
 
+<aside class="sidebar" id="sidebar">
+    <a href="index.html">Home</a>
+    <a href="Ebooks.html">E-books</a>
+    <a href="Aboutus.html">About Us</a>
+    <a href="Calculator.html">Fitness Calculator</a>
+    <a href="TrainingProgram.html">Training Program</a>
+</aside>
+
 <main>
     <h1>Fitness Calculators</h1>
     <p>Please note: The results provided by these calculators are estimates and may not be exact.</p>
@@ -212,11 +245,16 @@
     <div id="max-lift-calculator" class="calculator" style="display: none;">
         <p>Enter the weight you lifted:</p>
         <input type="number" id="lift-weight" placeholder="Weight lifted" required>
+        <div style="margin-top: 10px;">
+            <label><input type="radio" name="lift-unit" value="kg" checked> Kilograms</label>
+            <label><input type="radio" name="lift-unit" value="lbs"> Pounds</label>
+        </div>
         <p>Enter the number of reps:</p>
         <input type="number" id="reps" placeholder="Reps" required>
         <button onclick="calculateMaxLift()">Calculate</button>
         <div class="results">
-            <p id="max-lift"></p>
+            <p id="max-lift-lbs"></p>
+            <p id="max-lift-kg"></p>
         </div>
     </div>
 </main>
@@ -224,7 +262,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 <script>
     function toggleSidebar() {
-        // Sidebar is removed, so this function is no longer needed.
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('active');
     }
 
     function calculateCalories() {
@@ -249,11 +288,18 @@
     function calculateMaxLift() {
         let weight = parseFloat(document.getElementById('lift-weight').value);
         let reps = parseInt(document.getElementById('reps').value);
+        let unit = document.querySelector('input[name="lift-unit"]:checked').value;
 
         const maxLiftLbs = Math.round(weight * (1 + reps / 30));
         const maxLiftKg = (maxLiftLbs / 2.2046226218).toFixed(2);
 
-        document.getElementById('max-lift').innerText = `Estimated 1 Rep Max: ${maxLiftLbs.toFixed(0)} lbs or ${maxLiftKg} kg`;
+        if (unit === 'kg') {
+            document.getElementById('max-lift-lbs').innerText = `Estimated 1 Rep Max: ${(maxLiftKg * 2.2046226218).toFixed(0)} lbs`;
+            document.getElementById('max-lift-kg').innerText = `Estimated 1 Rep Max: ${maxLiftKg} kg`;
+        } else {
+            document.getElementById('max-lift-lbs').innerText = `Estimated 1 Rep Max: ${maxLiftLbs.toFixed(0)} lbs`;
+            document.getElementById('max-lift-kg').innerText = `Estimated 1 Rep Max: ${(maxLiftLbs / 2.2046226218).toFixed(2)} kg`;
+        }
     }
 
     function showCalculator(calculatorId) {
