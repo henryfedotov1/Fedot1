@@ -74,7 +74,6 @@
             min-height: calc(100vh - 150px); /* Adjusted to account for header height */
             position: relative;
             color: #000;
-            
         }
         h1 {
             font-size: 2em;
@@ -133,18 +132,19 @@
         /* Sidebar styles */
         .sidebar {
             position: fixed;
-            top: 0;
-            left: -250px; /* Start hidden */
+            top: 0; /* Start from the top */
+            left: 0;
             width: 250px;
             height: 100%;
             background-color: #333;
             color: #fff;
-            transition: left 0.3s ease;
+            transition: transform 0.3s ease;
+            transform: translateX(-100%); /* Start hidden off-screen to the left */
             padding-top: 60px;
             z-index: 1001;
         }
         .sidebar.open {
-            left: 0;
+            transform: translateX(0); /* Slide in from the left */
         }
         .sidebar h2 {
             text-align: center;
@@ -250,8 +250,7 @@
 
 <main>
     <h1>Fitness Calculators</h1>
-    <p>Please note: The results provided by these calculators are estimates and may not be exact.</p>
-
+    <p>Welcome to the Fitness Calculators page. Choose a calculator below to get started:</p>
     <div class="calculator-switch">
         <button onclick="showCalculator('calorie-calculator')">Calorie Calculator</button>
         <button onclick="showCalculator('max-lift-calculator')">Max Lift Calculator</button>
@@ -260,7 +259,7 @@
     <div id="calorie-calculator" class="calculator" style="display: block;">
         <p>Enter your weight:</p>
         <input type="number" id="weight" placeholder="Weight" required>
-        <div style="margin-top: 10px;">
+        <div>
             <label><input type="radio" name="unit" value="kilograms" checked> Kilograms</label>
             <label><input type="radio" name="unit" value="pounds"> Pounds</label>
         </div>
@@ -274,68 +273,70 @@
     </div>
 
     <div id="max-lift-calculator" class="calculator" style="display: none;">
-        <p>Enter the weight you lifted:</p>
-        <input type="number" id="lift-weight" placeholder="Weight lifted" required>
-        <div style="margin-top: 10px;">
+        <p>Enter lift weight and repetitions:</p>
+        <input type="number" id="lift-weight" placeholder="Lift Weight" required>
+        <input type="number" id="reps" placeholder="Repetitions" required>
+        <div>
             <label><input type="radio" name="lift-unit" value="kg" checked> Kilograms</label>
             <label><input type="radio" name="lift-unit" value="lbs"> Pounds</label>
         </div>
-        <p>Enter the number of reps:</p>
-        <input type="number" id="reps" placeholder="Reps" required>
         <button onclick="calculateMaxLift()">Calculate</button>
         <div class="results">
-            <p id="max-lift-lbs"></p>
             <p id="max-lift-kg"></p>
+            <p id="max-lift-lbs"></p>
         </div>
     </div>
 </main>
 
 <script>
-    function toggleSidebar() {
-        const sidebar = document.getElementById('sidebar');
-        sidebar.classList.toggle('active');
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('open');
+}
+
+function showCalculator(calculatorId) {
+    document.getElementById('calorie-calculator').style.display = 'none';
+    document.getElementById('max-lift-calculator').style.display = 'none';
+    document.getElementById(calculatorId).style.display = 'block';
+}
+
+function calculateCalories() {
+    const weight = parseFloat(document.getElementById('weight').value);
+    const unit = document.querySelector('input[name="unit"]:checked').value;
+    
+    let weightInKg = weight;
+    if (unit === 'pounds') {
+        weightInKg = weight * 0.453592; // Convert pounds to kilograms
     }
+    
+    const maintenance = weightInKg * 24; // Example maintenance calories calculation
+    const bulk = maintenance + 500;
+    const cut = maintenance - 500;
+    const aggressiveCut = maintenance - 1000;
 
-    function showCalculator(calculatorId) {
-        document.getElementById('calorie-calculator').style.display = calculatorId === 'calorie-calculator' ? 'block' : 'none';
-        document.getElementById('max-lift-calculator').style.display = calculatorId === 'max-lift-calculator' ? 'block' : 'none';
+    document.getElementById('maintenance').innerText = `Maintenance Calories: ${maintenance.toFixed(2)} kcal/day`;
+    document.getElementById('bulk').innerText = `Bulking Calories: ${bulk.toFixed(2)} kcal/day`;
+    document.getElementById('cut').innerText = `Cutting Calories: ${cut.toFixed(2)} kcal/day`;
+    document.getElementById('aggressive-cut').innerText = `Aggressive Cutting Calories: ${aggressiveCut.toFixed(2)} kcal/day`;
+}
+
+function calculateMaxLift() {
+    const liftWeight = parseFloat(document.getElementById('lift-weight').value);
+    const reps = parseInt(document.getElementById('reps').value);
+    const unit = document.querySelector('input[name="lift-unit"]:checked').value;
+    
+    let oneRepMax = liftWeight * (1 + reps / 30);
+    
+    if (unit === 'lbs') {
+        // Display results in pounds
+        document.getElementById('max-lift-lbs').innerText = `Estimated Max Lift: ${oneRepMax.toFixed(2)} lbs`;
+        document.getElementById('max-lift-kg').innerText = `Estimated Max Lift: ${(oneRepMax / 2.20462).toFixed(2)} kg`;
+    } else {
+        // Display results in kilograms
+        document.getElementById('max-lift-kg').innerText = `Estimated Max Lift: ${oneRepMax.toFixed(2)} kg`;
+        document.getElementById('max-lift-lbs').innerText = `Estimated Max Lift: ${(oneRepMax * 2.20462).toFixed(2)} lbs`;
     }
-
-    function calculateCalories() {
-        let weight = parseFloat(document.getElementById('weight').value);
-        let unit = document.querySelector('input[name="unit"]:checked').value;
-        
-        if (unit === 'pounds') {
-            weight = weight / 2.2046226218; // Convert pounds to kilograms
-        }
-
-        const maintenanceCalories = Math.round(weight * 33);
-        const bulkCalories = Math.round(maintenanceCalories + 350);
-        const cutCalories = Math.round(maintenanceCalories - 500);
-        const aggressiveCutCalories = Math.round(cutCalories - 500);
-
-        document.getElementById('maintenance').innerText = `Maintenance calorie intake: ${maintenanceCalories.toFixed(0)} kcal`;
-        document.getElementById('bulk').innerText = `Suggested bulk calorie intake: ${bulkCalories.toFixed(0)} kcal`;
-        document.getElementById('cut').innerText = `Suggested cut calorie intake: ${cutCalories.toFixed(0)} kcal`;
-        document.getElementById('aggressive-cut').innerText = `Suggested aggressive cut calorie intake: ${aggressiveCutCalories.toFixed(0)} kcal (Note: This calorie intake isn't healthy and might result in muscle loss)`;
-    }
-
-    function calculateMaxLift() {
-        let weight = parseFloat(document.getElementById('lift-weight').value);
-        let reps = parseInt(document.getElementById('reps').value);
-        let unit = document.querySelector('input[name="lift-unit"]:checked').value;
-
-        const maxLiftLbs = Math.round(weight * (1 + reps / 30));
-        const maxLiftKg = (maxLiftLbs / 2.2046226218).toFixed(2);
-
-        if (unit === 'kg') {
-            document.getElementById('max-lift-lbs').innerText = `Estimated 1 Rep Max: ${(maxLiftKg * 2.2046226218).toFixed(0)} lbs`;
-            document.getElementById('max-lift-kg').innerText = `Estimated 1 Rep Max: ${maxLiftKg} kg`;
-        } else {
-            document.getElementById('max-lift-lbs').innerText = `Estimated 1 Rep Max: ${maxLiftLbs.toFixed(0)} lbs`;
-            document.getElementById('max-lift-kg').innerText = `Estimated 1 Rep Max: ${(maxLiftLbs / 2.2046226218).toFixed(2)} kg`;
-        }
-    }
+}
 </script>
 </body>
 </html>
