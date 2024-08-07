@@ -178,42 +178,49 @@
         }
         /* Responsive design */
         @media (max-width: 768px) {
-            header {
-                padding: 15px; /* Decreased padding for a slightly smaller header */
-                height: 60px; /* Reduced height for a smaller header */
-                box-sizing: border-box; /* Ensure padding is included in the height */
-            }
-            .logo {
-                display: none; /* Hide the logo in phone mode */
-            }
-            .top-nav {
-                display: none; /* Hide top navigation in phone mode */
-            }
-            .menu-button {
-                display: block; /* Show the menu button in phone mode */
-                font-size: 1.8em; /* Adjust font size for visibility */
-                padding: 12px; /* Adjust padding for a better click area */
-                position: absolute;
-                top: 10px; /* Adjust position if needed */
-                left: 10px; /* Adjust position if needed */
-            }
-            main {
-                padding-top: 70px; /* Adjust padding-top to match the smaller header height */
-            }
-            .sidebar a i {
-                margin-right: 15px; /* Adjust spacing as needed */
-            }
-        }
+    header {
+        padding: 15px; /* Decreased padding for a slightly smaller header */
+        height: 60px; /* Reduced height for a smaller header */
+        box-sizing: border-box; /* Ensure padding is included in the height */
+    }
+    .logo {
+        display: none; /* Hide the logo in phone mode */
+    }
+    .top-nav {
+        display: none; /* Hide top navigation in phone mode */
+    }
+    .menu-button {
+        display: block; /* Show the menu button in phone mode */
+        font-size: 1.4em; /* Reduced font size for a smaller button */
+        padding: 8px; /* Adjust padding for a smaller button */
+        position: absolute;
+        top: 10px; /* Adjust position if needed */
+        left: 10px; /* Adjust position if needed */
+    }
+    main {
+        padding-top: 70px; /* Adjust padding-top to match the smaller header height */
+    }
+    .sidebar a i {
+        margin-right: 15px; /* Adjust spacing as needed */
+    }
+}
 
-        @media (max-width: 390px) {
-            .menu-button {
-                font-size: 1.6em; /* Adjust for very small screens */
-                padding: 10px;
-            }
-            .menu-button i {
-                font-size: 1.4em;
-            }
-        }
+/* For very small screens */
+@media (max-width: 390px) {
+    .menu-button {
+        font-size: 1.2em; /* Further reduced font size for very small screens */
+        padding: 6px; /* Further reduced padding */
+    }
+    .menu-button i {
+        font-size: 1.2em; /* Adjust icon size if needed */
+    }
+    .sidebar ul li {
+        font-size: 1.2em; /* Increase font size of menu items */
+    }
+    .sidebar {
+        width: 220px; /* Adjust width if needed */
+    }
+}
     </style>
 </head>
 <body>
