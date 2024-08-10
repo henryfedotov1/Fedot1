@@ -8,185 +8,372 @@
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
+            color: #333;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
         }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 15px;
-            text-align: center;
-        }
-        h1, h2, h3 {
-            color: #333;
-        }
         .container {
             width: 80%;
-            margin: 0 auto;
+            margin: auto;
+            overflow: hidden;
             padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #7851A9;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
         }
         .recipe {
-            border-bottom: 1px solid #ddd;
-            padding: 15px 0;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
         }
-        .recipe h3 {
-            margin: 0;
-            color: #7851A9;
+        .recipe h2 {
+            margin-top: 0;
         }
         .recipe p {
             margin: 10px 0;
         }
-        .nutrition {
-            font-style: italic;
-            color: #555;
-        }
-        .recipe img {
-            max-width: 100%;
-            height: auto;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
+        .macros {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
             padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        .recipe .description {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Low-Calorie, High-Nutrition: Delicious Recipes for Weight Management</h1>
-    </header>
     <div class="container">
-        <h2>Table of Contents</h2>
+    <div class="recipe">
+        <h2>Spaghetti Squash with Marinara</h2>
+        <h3>Ingredients:</h3>
         <ul>
-            <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#recipe1">Recipe 1: Veggie-Stuffed Bell Peppers</a></li>
-            <li><a href="#recipe2">Recipe 2: Quinoa and Black Bean Salad</a></li>
-            <li><a href="#recipe3">Recipe 3: Greek Yogurt Smoothie</a></li>
-            <li><a href="#recipe4">Recipe 4: Spaghetti Squash with Marinara</a></li>
-            <li><a href="#recipe5">Recipe 5: Baked Lemon Herb Chicken</a></li>
+            <li>1 medium spaghetti squash</li>
+            <li>2 cups marinara sauce (low-fat)</li>
+            <li>Fresh basil leaves</li>
         </ul>
-
-        <h2 id="introduction">Introduction</h2>
-        <p>Welcome to "Low-Calorie, High-Nutrition: Delicious Recipes for Weight Management." This book is designed to help you maintain a healthy weight without sacrificing flavor. Each recipe is carefully crafted to be low in calories while providing essential nutrients to keep you satisfied and energized.</p>
-
-        <h2 id="recipe1">Recipe 1: Veggie-Stuffed Bell Peppers</h2>
-        <div class="recipe">
-            <h3>Ingredients:</h3>
-            <ul>
-                <li>4 large bell peppers</li>
-                <li>1 cup cooked quinoa</li>
-                <li>1 cup black beans, drained and rinsed</li>
-                <li>1 cup corn kernels</li>
-                <li>1 cup diced tomatoes</li>
-                <li>1/2 cup chopped onions</li>
-                <li>2 cloves garlic, minced</li>
-                <li>1 tsp cumin</li>
-                <li>1/2 tsp paprika</li>
-                <li>Salt and pepper to taste</li>
-                <li>1/2 cup shredded low-fat cheese (optional)</li>
-            </ul>
-            <h3>Instructions:</h3>
-            <p>1. Preheat oven to 375°F (190°C).</p>
-            <p>2. Cut the tops off the bell peppers and remove seeds.</p>
-            <p>3. In a large bowl, mix quinoa, black beans, corn, tomatoes, onions, garlic, cumin, paprika, salt, and pepper.</p>
-            <p>4. Stuff each bell pepper with the mixture.</p>
-            <p>5. Place stuffed peppers in a baking dish and cover with foil. Bake for 30 minutes.</p>
-            <p>6. Remove foil, top with cheese (if using), and bake for an additional 10 minutes.</p>
-            <h3 class="nutrition">Nutritional Information (per serving):</h3>
-            <p>Calories: 250 | Protein: 10g | Carbohydrates: 40g | Fat: 5g</p>
-        </div>
-
-        <h2 id="recipe2">Recipe 2: Quinoa and Black Bean Salad</h2>
-        <div class="recipe">
-            <h3>Ingredients:</h3>
-            <ul>
-                <li>1 cup cooked quinoa</li>
-                <li>1 cup black beans, drained and rinsed</li>
-                <li>1 cup diced bell peppers</li>
-                <li>1/2 cup chopped red onion</li>
-                <li>1/4 cup chopped cilantro</li>
-                <li>2 tbsp lime juice</li>
-                <li>1 tbsp olive oil</li>
-                <li>Salt and pepper to taste</li>
-            </ul>
-            <h3>Instructions:</h3>
-            <p>1. In a large bowl, combine quinoa, black beans, bell peppers, onion, and cilantro.</p>
-            <p>2. In a small bowl, whisk together lime juice, olive oil, salt, and pepper.</p>
-            <p>3. Pour the dressing over the salad and toss to combine.</p>
-            <h3 class="nutrition">Nutritional Information (per serving):</h3>
-            <p>Calories: 200 | Protein: 8g | Carbohydrates: 30g | Fat: 7g</p>
-        </div>
-
-        <h2 id="recipe3">Recipe 3: Greek Yogurt Smoothie</h2>
-        <div class="recipe">
-            <h3>Ingredients:</h3>
-            <ul>
-                <li>1 cup Greek yogurt</li>
-                <li>1 cup frozen berries</li>
-                <li>1 banana</li>
-                <li>1 cup spinach</li>
-                <li>1 tbsp honey</li>
-                <li>1/2 cup water or almond milk</li>
-            </ul>
-            <h3>Instructions:</h3>
-            <p>1. Combine all ingredients in a blender.</p>
-            <p>2. Blend until smooth.</p>
-            <p>3. Pour into a glass and enjoy immediately.</p>
-            <h3 class="nutrition">Nutritional Information (per serving):</h3>
-            <p>Calories: 250 | Protein: 15g | Carbohydrates: 35g | Fat: 2g</p>
-        </div>
-
-        <h2 id="recipe4">Recipe 4: Spaghetti Squash with Marinara</h2>
-        <div class="recipe">
-            <h3>Ingredients:</h3>
-            <ul>
-                <li>1 medium spaghetti squash</li>
-                <li>2 cups marinara sauce</li>
-                <li>1/2 cup grated Parmesan cheese (optional)</li>
-                <li>Salt and pepper to taste</li>
-                <li>1 tbsp olive oil</li>
-            </ul>
-            <h3>Instructions:</h3>
-            <p>1. Preheat oven to 400°F (200°C).</p>
-            <p>2. Cut spaghetti squash in half lengthwise and scoop out seeds.</p>
-            <p>3. Brush the inside with olive oil and season with salt and pepper.</p>
-            <p>4. Place squash cut side down on a baking sheet and bake for 40 minutes.</p>
-            <p>5. Scrape the squash with a fork to create "noodles."</p>
-            <p>6. Top with marinara sauce and Parmesan cheese (if using).</p>
-            <h3 class="nutrition">Nutritional Information (per serving):</h3>
-            <p>Calories: 150 | Protein: 6g | Carbohydrates: 20g | Fat: 7g</p>
-        </div>
-
-        <h2 id="recipe5">Recipe 5: Baked Lemon Herb Chicken</h2>
-        <div class="recipe">
-            <h3>Ingredients:</h3>
-            <ul>
-                <li>4 boneless, skinless chicken breasts</li>
-                <li>2 tbsp lemon juice</li>
-                <li>1 tbsp olive oil</li>
-                <li>2 cloves garlic, minced</li>
-                <li>1 tsp dried oregano</li>
-                <li>1 tsp dried thyme</li>
-                <li>Salt and pepper to taste</li>
-            </ul>
-            <h3>Instructions:</h3>
-            <p>1. Preheat oven to 375°F (190°C).</p>
-            <p>2. In a small bowl, mix lemon juice, olive oil, garlic, oregano, thyme, salt, and pepper.</p>
-            <p>3. Place chicken breasts in a baking dish and pour the mixture over them.</p>
-            <p>4. Bake for 25-30 minutes or until the chicken reaches an internal temperature of 165°F (74°C).</p>
-            <h3 class="nutrition">Nutritional Information (per serving):</h3>
-            <p>Calories: 200 | Protein: 30g | Carbohydrates: 0g | Fat: 8g</p>
-        </div>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Cut the squash in half lengthwise and scoop out seeds.</li>
+            <li>Bake cut-side down at 400°F (200°C) for 40 minutes.</li>
+            <li>Scrape with a fork to create noodles.</li>
+            <li>Top with marinara sauce and fresh basil.</li>
+        </ol>
     </div>
-    <footer>
-        <p>&copy; 2024 Low-Calorie, High-Nutrition. All Rights Reserved.</p>
-    </footer>
+
+    <div class="recipe">
+        <h2>Chicken and Vegetable Stir-Fry</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>1 lb chicken breast, diced</li>
+            <li>2 cups mixed vegetables (bell peppers, broccoli, snap peas)</li>
+            <li>2 tbsp low-sodium soy sauce</li>
+            <li>1 tbsp rice vinegar</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Stir-fry chicken in a non-stick pan until cooked.</li>
+            <li>Add vegetables and stir-fry until tender-crisp.</li>
+            <li>Mix soy sauce and rice vinegar, then pour over the stir-fry.</li>
+        </ol>
+    </div>
+
+    <div class="recipe">
+        <h2>Greek Yogurt and Berry Parfait</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>1 cup plain Greek yogurt (fat-free)</li>
+            <li>1/2 cup mixed berries (strawberries, blueberries)</li>
+            <li>1 tbsp honey</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Layer Greek yogurt, berries, and honey in a glass.</li>
+            <li>Repeat layers and serve chilled.</li>
+        </ol>
+    </div>
+
+    <div class="recipe">
+        <h2>Cucumber and Tomato Salad</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>1 cucumber, sliced</li>
+            <li>2 tomatoes, diced</li>
+            <li>1/4 red onion, thinly sliced</li>
+            <li>1 tbsp balsamic vinegar</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Combine cucumber, tomatoes, and red onion in a bowl.</li>
+            <li>Drizzle with balsamic vinegar.</li>
+            <li>Season with salt and pepper to taste.</li>
+        </ol>
+    </div>
+
+    <div class="recipe">
+        <h2>Quinoa and Black Bean Salad</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>1 cup cooked quinoa</li>
+            <li>1 cup black beans, drained and rinsed</li>
+            <li>1 cup diced bell peppers</li>
+            <li>1/2 cup chopped red onion</li>
+            <li>1/4 cup chopped cilantro</li>
+            <li>2 tbsp lime juice</li>
+            <li>1 tbsp olive oil</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>In a large bowl, combine quinoa, black beans, bell peppers, onion, and cilantro.</li>
+            <li>In a small bowl, whisk together lime juice, olive oil, salt, and pepper.</li>
+            <li>Pour the dressing over the salad and toss to combine.</li>
+        </ol>
+    </div>
+
+    <div class="recipe">
+        <h2>Greek Chicken Skewers</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>1 lb chicken breast, cubed</li>
+            <li>1/4 cup plain Greek yogurt (fat-free)</li>
+            <li>2 tbsp lemon juice</li>
+            <li>1 tbsp olive oil</li>
+            <li>2 cloves garlic, minced</li>
+            <li>1 tsp dried oregano</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Combine Greek yogurt, lemon juice, olive oil, garlic, oregano, salt, and pepper in a bowl.</li>
+            <li>Add chicken and marinate for at least 30 minutes.</li>
+            <li>Thread chicken onto skewers and grill over medium heat for 10-15 minutes, or until cooked through.</li>
+        </ol>
+    </div>
+
+    <div class="recipe">
+        <h2>Egg White Omelette with Spinach</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>4 egg whites</li>
+            <li>1 cup fresh spinach, chopped</li>
+            <li>1/4 cup diced onions</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Whisk egg whites in a bowl.</li>
+            <li>Heat a non-stick skillet over medium heat and add onions, cooking until translucent.</li>
+            <li>Add spinach and cook until wilted.</li>
+            <li>Pour egg whites over the spinach and onions. Cook until set.</li>
+        </ol>
+    </div>
+
+    <div class="recipe">
+        <h2>Turkey Lettuce Wraps</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>1 lb ground turkey</li>
+            <li>1/2 cup diced bell peppers</li>
+            <li>1/2 cup diced onions</li>
+            <li>2 cloves garlic, minced</li>
+            <li>2 tbsp low-sodium soy sauce</li>
+            <li>1 head of lettuce (for wrapping)</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Cook ground turkey in a skillet over medium heat until browned.</li>
+            <li>Add bell peppers, onions, and garlic, cooking until vegetables are tender.</li>
+            <li>Stir in soy sauce, salt, and pepper.</li>
+            <li>Serve turkey mixture in lettuce leaves as wraps.</li>
+        </ol>
+    </div>
+
+    <div class="recipe">
+        <h2>Roasted Vegetable Soup</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>1 cup carrots, diced</li>
+            <li>1 cup zucchini, diced</li>
+            <li>1 cup bell peppers, diced</li>
+            <li>1 cup low-sodium vegetable broth</li>
+            <li>1 tbsp olive oil</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Preheat oven to 400°F (200°C).</li>
+            <li>Toss vegetables with olive oil, salt, and pepper. Roast for 25-30 minutes.</li>
+            <li>Transfer vegetables to a pot and add vegetable broth. Simmer for 10 minutes.</li>
+            <li>Blend until smooth and serve warm.</li>
+        </ol>
+    </div>
+
+    <div class="recipe">
+        <h2>Chicken Caesar Salad (No Dressing)</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>2 cups romaine lettuce, chopped</li>
+            <li>1 cup cooked chicken breast, sliced</li>
+            <li>1/4 cup shaved Parmesan cheese (optional)</li>
+            <li>1 tbsp lemon juice</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>In a bowl, toss lettuce with lemon juice, salt, and pepper.</li>
+            <li>Top with sliced chicken and Parmesan cheese (if using).</li>
+        </ol>
+    </div>
+
+    <div class="recipe">
+        <h2>Sweet Potato and Black Bean Tacos</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>1 large sweet potato, peeled and diced</li>
+            <li>1 cup black beans, drained and rinsed</li>
+            <li>1 tsp cumin</li>
+            <li>1/2 tsp paprika</li>
+            <li>8 small corn tortillas</li>
+            <li>Fresh cilantro, chopped (optional)</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Preheat oven to 400°F (200°C).</li>
+            <li>Toss sweet potato with cumin, paprika, salt, and pepper. Roast for 25-30 minutes.</li>
+            <li>Warm tortillas and fill with sweet potato and black beans. Garnish with cilantro if desired.</li>
+        </ol>
+    </div>
+
+    <div class="recipe">
+        <h2>Veggie Stuffed Bell Peppers</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>4 bell peppers, tops cut off and seeds removed</li>
+            <li>1 cup cooked quinoa</li>
+            <li>1 cup diced tomatoes</li>
+            <li>1 cup chopped spinach</li>
+            <li>1/2 cup chopped onions</li>
+            <li>1 tsp dried oregano</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Preheat oven to 375°F (190°C).</li>
+            <li>Mix quinoa, tomatoes, spinach, onions, oregano, salt, and pepper.</li>
+            <li>Stuff bell peppers with the mixture and place in a baking dish.</li>
+            <li>Bake for 30-35 minutes.</li>
+        </ol>
+    </div>
+
+    <div class="recipe">
+        <h2>Cauliflower Rice Stir-Fry</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>1 head cauliflower, riced</li>
+            <li>1 cup mixed vegetables (carrots, peas, bell peppers)</li>
+            <li>2 tbsp low-sodium soy sauce</li>
+            <li>1 tbsp sesame oil</li>
+            <li>2 cloves garlic, minced</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Heat sesame oil in a pan over medium heat and add garlic, cooking until fragrant.</li>
+            <li>Add mixed vegetables and cook until tender.</li>
+            <li>Add cauliflower rice and soy sauce, and stir-fry until cooked through.</li>
+        </ol>
+    </div>
+
+    <div class="recipe">
+        <h2>Eggplant and Tomato Bake</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>1 large eggplant, sliced</li>
+            <li>2 cups diced tomatoes</li>
+            <li>1/2 cup chopped basil</li>
+            <li>1 tbsp olive oil</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Preheat oven to 375°F (190°C).</li>
+            <li>Layer eggplant slices in a baking dish, and top with diced tomatoes and basil.</li>
+            <li>Drizzle with olive oil, and season with salt and pepper.</li>
+            <li>Bake for 30 minutes until eggplant is tender.</li>
+        </ol>
+    </div>
+
+    <div class="recipe">
+        <h2>Spinach and Feta Stuffed Chicken Breast</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>4 chicken breasts</li>
+            <li>1 cup fresh spinach, chopped</li>
+            <li>1/4 cup crumbled feta cheese</li>
+            <li>1 clove garlic, minced</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Preheat oven to 375°F (190°C).</li>
+            <li>Mix spinach, feta, and garlic in a bowl.</li>
+            <li>Cut a pocket in each chicken breast and stuff with spinach mixture.</li>
+            <li>Season with salt and pepper, and bake for 25-30 minutes until cooked through.</li>
+        </ol>
+    </div>
+
+    <div class="recipe">
+        <h2>Apple and Cinnamon Oatmeal</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>1 cup rolled oats</li>
+            <li>1 cup water or almond milk</li>
+            <li>1 apple, diced</li>
+            <li>1/2 tsp ground cinnamon</li>
+            <li>1 tbsp honey (optional)</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Combine oats and water (or almond milk) in a pot. Cook over medium heat for 5-7 minutes.</li>
+            <li>Add diced apple and cinnamon, cooking for another 2-3 minutes.</li>
+            <li>Sweeten with honey if desired.</li>
+        </ol>
+    </div>
+
+    <div class="recipe">
+        <h2>Zucchini Noodles with Pesto</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>2 zucchinis, spiralized</li>
+            <li>1/4 cup basil pesto (low-fat)</li>
+            <li>1 tbsp olive oil</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Heat olive oil in a pan over medium heat.</li>
+            <li>Add zucchini noodles and cook for 2-3 minutes until tender.</li>
+            <li>Stir in pesto, and season with salt and pepper. Serve warm.</li>
+        </ol>
+    </div>
+</div>
+
+
+
+        <!-- Add more recipes as needed -->
+
+    </div>
 </body>
 </html>
