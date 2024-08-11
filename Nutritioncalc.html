@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { width: 60%; margin: 0 auto; padding: 20px; }
+        h1 { text-align: center; }
+        label { display: block; margin: 10px 0 5px; }
+        input, select { width: 100%; padding: 8px; margin-bottom: 10px; }
+        button { padding: 10px 20px; background-color: royalblue; color: white; border: none; cursor: pointer; }
+        .results { margin-top: 20px; }
+        .recommendation { margin-top: 10px; color: green; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nutrition Calculator</h1>
+        <form id="calculatorForm">
+            <label for="weight">Weight:</label>
+            <input type="number" id="weight" name="weight" required>
+            
+            <label for="weightUnit">Unit:</label>
+            <select id="weightUnit" name="weightUnit" required>
+                <option value="kg">Kilograms (kg)</option>
+                <option value="lb">Pounds (lb)</option>
+            </select>
+
+            <label for="goal">Goal:</label>
+            <select id="goal" name="goal" required>
+                <option value="gainMuscle">Gain Muscle</option>
+                <option value="loseFat">Lose Fat</option>
+                <option value="gainWeight">Gain Weight</option>
+            </select>
+
+            <button type="button" onclick="calculateNutrients()">Calculate</button>
+        </form>
+
+        <div class="results" id="results"></div>
+    </div>
+
+    <script>
+        function calculateNutrients() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const weightUnit = document.getElementById('weightUnit').value;
+            const goal = document.getElementById('goal').value;
+
+            let weightInKg;
+            if (weightUnit === 'lb') {
+                weightInKg = weight * 0.453592; // Convert pounds to kilograms
+            } else {
+                weightInKg = weight;
+            }
+
+            // Calculate calories needed
+            const calories = weightInKg * 33;
+
+            // Calculate nutrients
+            const protein = weightInKg * 2.2; // 1 gram per pound, converting kg to pounds
+            let carbs, fats;
+            let totalProteinCalories, totalFatCalories, totalCarbCalories;
+            let recommendation;
+
+            if (goal === 'gainMuscle') {
+                fats = weightInKg * 0.8; // Higher fat intake for muscle gain
+                totalFatCalories = fats * 9;
+                totalProteinCalories = protein * 4;
+                carbs = (calories - totalProteinCalories - totalFatCalories) / 4;
+                recommendation = "Recommendation: if you want to gain muscle faster, it is recommended to eat in a small surplus of 250 calories.";
+            } else if (goal === 'loseFat') {
+                fats = weightInKg * 0.5; // Lower fat intake for fat loss
+                totalFatCalories = fats * 9;
+                totalProteinCalories = protein * 4;
+                carbs = (calories - totalProteinCalories - totalFatCalories) / 4;
+                recommendation = "Recommendation: if you want to lose fat faster, it is recommended to eat in a deficit of calories ranging from 250 - 500 calories.";
+            } else if (goal === 'gainWeight') {
+                fats = weightInKg * 0.6; // Moderate fat intake for weight gain
+                totalFatCalories = fats * 9;
+                totalProteinCalories = protein * 4;
+                carbs = (calories - totalProteinCalories - totalFatCalories) / 4;
+                recommendation = "Recommendation: if you want to gain weight faster, it is recommended to eat in a surplus of calories ranging from 250 - 500 calories.";
+            }
+
+            totalCarbCalories = carbs * 4;
+
+            // Display results
+            document.getElementById('results').innerHTML = `
+                <h2>Results:</h2>
+                <p><strong>Calories Needed:</strong> ${calories} kcal</p>
+                <p><strong>Protein:</strong> ${protein.toFixed(1)} grams (${totalProteinCalories.toFixed(1)} kcal)</p>
+                <p><strong>Carbohydrates:</strong> ${carbs.toFixed(1)} grams (${totalCarbCalories.toFixed(1)} kcal)</p>
+                <p><strong>Fats:</strong> ${fats.toFixed(1)} grams (${totalFatCalories.toFixed(1)} kcal)</p>
+                <div class="recommendation">${recommendation}</div>
+            `;
+        }
+    </script>
+</body>
+</html>
