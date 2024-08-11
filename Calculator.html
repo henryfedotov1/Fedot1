@@ -177,6 +177,21 @@
             margin: 0 5px;
             text-decoration: none;
         }
+        /* Nutrition Calculator Button */
+.nutrition-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.nutrition-button:hover {
+    background-color: #333;
+}
+
         /* Responsive design */
         @media (max-width: 768px) {
     header {
@@ -261,6 +276,7 @@
         <button onclick="showCalculator('calorie-calculator')">Calorie Calculator</button>
         <button onclick="showCalculator('max-lift-calculator')">Max Lift Calculator</button>
     </div>
+    <a href="Nutritioncalc.html" class="nutrition-button">Go to Nutrition Calculator</a>
 
     <div id="calorie-calculator" class="calculator" style="display: block;">
         <p>Enter your weight:</p>
