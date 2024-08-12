@@ -57,31 +57,22 @@
             margin-right: 20px;
             font-size: 1.2em;
         }
-        .menu-button {
-    display: block; /* Ensure it's visible */
-    font-size: 2.5em; /* Increase font size for the icon */
-    cursor: pointer;
-    background: #333; /* Dark background to make the button stand out */
-    border: none;
-    color: #fff; /* White color for the icon */
-    padding: 15px; /* Increase padding to make the button larger */
-    border-radius: 50%; /* Round button edges */
-    position: absolute; /* Absolute positioning for proper placement */
-    top: 15px; /* Position slightly lower */
-    left: 15px; /* Position slightly right */
-    z-index: 1002; /* Ensure it's above other content */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for better visibility */
-    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
-}
-
-.menu-button:hover {
-    background-color: #555; /* Slightly lighter background on hover */
-    transform: scale(1.1); /* Slightly enlarge the button on hover */
-}
-
-.menu-button i {
-    font-size: 2.5em; /* Increase the icon size to match the button size */
-}
+         .menu-button {
+            display: none; /* Hide menu button by default */
+            font-size: 1.5em; /* Smaller font size */
+            cursor: pointer;
+            background: none; /* Remove background color */
+            border: none;
+            color: #fff; /* White color for the icon */
+            padding: 10px; /* Smaller padding */
+            position: absolute; /* Absolute positioning for proper placement */
+            top: 10px;
+            left: 10px; /* Position in the top-left corner */
+            z-index: 1002; /* Ensure it's above other content */
+        }
+        .menu-button i {
+            font-size: 1.2em; /* Smaller icon size */
+        }
 
         main {
             background-color: #fff; /* White background for main content */
